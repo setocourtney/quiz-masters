@@ -1,0 +1,7 @@
+USE pokequizdb;
+
+LOAD DATA INFILE '/questions.csv' 
+INTO TABLE questions
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n';
