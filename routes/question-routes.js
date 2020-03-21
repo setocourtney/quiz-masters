@@ -14,11 +14,7 @@ module.exports = function(app) {
   });
 
   app.get("/api/questions/", function(req, res) {
-    db.Questions.findAll({
-      where: {
-        type_id: req.params.type_id
-      }
-    }).then((dbQuestions) => {
+    db.Questions.findAll({}).then((dbQuestions) => {
       res.json(dbQuestions);
     });
   });

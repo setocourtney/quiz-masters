@@ -2,7 +2,7 @@ var fs = require('fs');
 var csv = require('csv');
 var db = require("../models");
 
-var input = fs.createReadStream('./db/questions.csv');
+var input = fs.createReadStream('./db/csv/questions.csv');
 var parser = csv.parse({
     delimiter: ',',
     columns: true
