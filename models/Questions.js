@@ -10,6 +10,7 @@ module.exports = function(sequelize, DataTypes) {
       },
       question: {
         type: DataTypes.STRING,
+        unique: true,
         allowNull: false
       },
       answer: {
@@ -23,5 +24,12 @@ module.exports = function(sequelize, DataTypes) {
     }, {
         freezeTableName: true
     });
+
+    Questions.associate = function(models) {
+      Questions.belongsTo(models.Types, {
+        through: "type_id"
+      });
+    };
+
     return Questions;
 };
