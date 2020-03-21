@@ -1,41 +1,48 @@
-modules.exports = (sequelize, DataTypes) => {
+module.exports = function(sequelize, DataTypes) {
     const Pokemon = sequelize.define("Pokemon", {
+        number: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
         name: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false
         },
         typeOne: {
             type: DataTypes.STRING, 
-            allowNull: false,
+            allowNull: false
         },
         typeTwo: {
             type: DataTypes.STRING
         },
         total: {
-            type: DataTypes.NUMBER,
-            allowNull: false
+            type: DataTypes.INTEGER
         },
         hp: {
-            type: DataTypes.NUMBER
+            type: DataTypes.INTEGER
         },
         attack: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         defense: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         spAtk: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        spDef: {
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         speed: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         generation: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         legendary : {
