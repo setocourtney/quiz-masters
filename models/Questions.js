@@ -24,15 +24,6 @@ module.exports = function(sequelize, DataTypes) {
     }, {
         freezeTableName: true
     });
-    
-    Questions.associate = function(models) {
-      Questions.belongsTo(models.Types, {
-        foreignKey: {
-          allowNull: false
-        },
-        through: "type_id"
-      });
-    };
-  
+      
     return Questions;
 };

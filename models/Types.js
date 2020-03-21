@@ -9,11 +9,5 @@ module.exports = function(sequelize, DataTypes) {
       freezeTableName: true
   });
 
-  Types.associate = function(models) {
-    Types.hasMany(models.Questions, {
-      onUpdate: "cascade"
-    });
-  };
-
   return Types;
 };
