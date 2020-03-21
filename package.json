@@ -1,7 +1,7 @@
 {
-  "name": "1-Passport-Example",
+  "name": "quiz-masters",
   "version": "1.0.0",
-  "description": "",
+  "description": "Trivia Game - Node application hosted on Heroku using express and mysql",
   "main": "server.js",
   "scripts": {
     "test": "npm run lint",
@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "2.4.3",
+    "csv": "^5.3.2",
     "express": "^4.17.0",
     "express-session": "^1.16.1",
     "mysql2": "^1.6.5",
@@ -31,5 +32,13 @@
     "eslint-plugin-prettier": "^2.6.2",
     "mocha": "^5.2.0",
     "prettier": "^1.13.7"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/setocourtney/quiz-masters.git"
+  },
+  "bugs": {
+    "url": "https://github.com/setocourtney/quiz-masters/issues"
+  },
+  "homepage": "https://github.com/setocourtney/quiz-masters#readme"
 }
