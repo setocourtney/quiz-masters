@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     const Pokemon = sequelize.define("Pokemon", {
-        number: {
+        pokeId: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
