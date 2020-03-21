@@ -1,12 +1,8 @@
 // Requiring necessary npm packages
 var express = require("express");
-<<<<<<< HEAD
 // var session = require("express-session");
 // Requiring passport as we've configured it
 // var passport = require("./config/passport");
-=======
-var session = require("express-session");
->>>>>>> quiz-feature
 
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
