@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="./styles.css">
@@ -31,9 +31,7 @@
     </div>
         <div class="relative">
             <img src="../assets/sprites/Pixel_art_grass_image.png" id="field">   
-            <div id="absolute">
-                <a href="javascript:" onClick="this.style.display='none'"> <img src="../assets/sprites/quick_grass.png" class="grass" id="A1"></a>
-            </div>
+            <a href="javascript:" onClick="this.style.display='none'"> <img src="../assets/sprites/quick_grass.png" class="grass" id="A1"></a>
             <a href="javascript:" onClick="this.style.display='none'"> <img src="../assets/sprites/quick_grass.png" class="grass" id="A2"></a>
             <a href="javascript:" onClick="this.style.display='none'"> <img src="../assets/sprites/quick_grass.png" class="grass" id="A3"></a>
             <a href="javascript:" onClick="this.style.display='none'"> <img src="../assets/sprites/quick_grass.png" class="grass" id="A4"></a>
@@ -120,6 +118,7 @@
             <div class="pokename">
                 PokeName
             </div>
+
             <div class="pokepic">
                 Pokemon Pic
             </div>
@@ -128,19 +127,21 @@
                 Question
             </div>
 
-                <div class="answer rounded" id="answer1">
-                    Answer 1
-                </div>
-                <div class="answer rounded" id="answer2">
-                    Answer 2
-                </div>
+            <div class="answer rounded" id="answer1">
+                Answer 1
+            </div>
 
-                <div class="answer rounded" id="answer3">
-                    Answer 3
-                </div>
-                <div class="answer rounded" id="answer4">
-                    Answer 4
-                </div>
+            <div class="answer rounded" id="answer2">
+                Answer 2
+            </div>
+
+            <div class="answer rounded" id="answer3">
+                Answer 3
+            </div>
+
+            <div class="answer rounded" id="answer4">
+                Answer 4
+            </div>
 
         </div>
 
@@ -153,15 +154,39 @@
 
     <!-- Modal content-->
     <div class="modal-content">
-      <div class="modal-header">
+      <!-- <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
+        <h4 class="modal-title">Pokemon Name</h4>
+      </div> -->
       <div class="modal-body">
-        <p>Some text in the modal.</p>
+        <h4>Pokemon Name</h4>
+        <div class="pokepic">
+            Pokemon Image here
+        </div>
+
+        <div class="question">
+            Question
+        </div>
+
+        <div class="answer rounded" id="answer1">
+            Answer 1
+        </div>
+
+        <div class="answer rounded" id="answer2">
+            Answer 2
+        </div>
+
+        <div class="answer rounded" id="answer3">
+            Answer 3
+        </div>
+
+        <div class="answer rounded" id="answer4">
+            Answer 4
+        </div>
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
       </div>
     </div>
 
@@ -218,9 +243,8 @@ $('.grass').on('click', function() {
     }
 })
 
-let battleBox = function() {
 
-}
+
 
 
 

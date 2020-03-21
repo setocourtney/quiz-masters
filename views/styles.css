@@ -52,8 +52,12 @@ div.relative {
 .answer {
     border: 1px solid black;
     width: 100%;
-    margin: 15px;
+    margin: 15px 0 15px 0;
     padding: 10px;
+}
+
+#myModal {
+    text-align: center;
 }
 
 #A1 {
