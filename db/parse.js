@@ -10,7 +10,7 @@ var parser = csv.parse({
 
 var transform = csv.transform(function(row) {
     const pokemon = {
-        number: row['Number'],
+        pokeId: row['PokeId'],
         name: row['Name'],
         typeOne: row['Type 1'],
         typeTwo: row['Type 2'],
