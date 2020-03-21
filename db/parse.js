@@ -2,6 +2,8 @@ var fs = require('fs');
 var csv = require('csv');
 var db = require('../models');
 
+let countErr = 0;
+
 var input = fs.createReadStream('./db/csv/Pokemon.csv');
 var parser = csv.parse({
 		delimiter: ',',
@@ -29,8 +31,14 @@ var transform = csv.transform(function(row) {
             console.log('Record created')
         })
         .catch(function(err) {
-            console.log('Error encountered: ' + err)
+            countErr++;
+            // console.log('Error encountered: ' + err)
         })
 })
 
-input.pipe(parser).pipe(transform)
+input.pipe(parser).pipe(transform) // async?
+if(countErr > 0) {
+    console.log("There is an error or table already exists");
+} else {
+    console.log("Table created!");
+}
