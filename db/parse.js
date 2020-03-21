@@ -28,7 +28,7 @@ var transform = csv.transform(function(row) {
     }
     db.Pokemon.create(pokemon)
         .then(function() {
-            console.log('Record created')
+            // console.log('Record created')
         })
         .catch(function(err) {
             countErr++;
