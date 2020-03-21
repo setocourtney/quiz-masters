@@ -30,5 +30,8 @@ db.sequelize.sync().then(function() {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
     // temporary fix, will create duplicate values each time the server is run 
     require("./db/parse.js");
+    // text for checking merge success"
+    console.log("This is a git merge attempt placeholder");
   });
 });
+
