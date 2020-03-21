@@ -24,11 +24,11 @@ app.use(express.static("public"));
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
-require("./db/parse.js");
-
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
+    // temporary fix, will create duplicate values each time the server is run 
+    require("./db/parse.js");
   });
 });
