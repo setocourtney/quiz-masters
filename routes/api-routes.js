@@ -51,9 +51,4 @@ module.exports = function(app) {
     }
   });
 
-  app.get("/api/pokemon_data", function(req, res) {
-    db.Pokemon.findAll().then((pokemon) => {
-      res.json(pokemon);
-    });
-  });
 };
