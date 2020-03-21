@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS pokequizDB;
+
+CREATE DATABASE pokequizDB;
