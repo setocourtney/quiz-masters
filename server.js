@@ -23,18 +23,14 @@ app.use(express.static("public"));
 
 // Requiring our routes
 require("./routes/question-routes.js")(app);
-require("./db/import-questions.js");
-require("./db/import-pokemon-type.js");
-require("./db/parse.js");
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
-    // // temporary fix, will create duplicate values each time the server is run 
-    // require("./db/parse.js");
-    // text for checking merge success"
-    // console.log("This is a git merge attempt placeholder");
+    require("./db/import-questions.js");
+    require("./db/import-pokemon-type.js");
+    require("./db/import-pokemon.js");
   });
 });
 
