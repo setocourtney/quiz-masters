@@ -18,6 +18,22 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/pokedex/", function(req, res) {
+    db.Pokedex.findAll({}).then((dbPokedex) => {
+      res.json(dbPokedex);
+    });
+  });
+
+  app.post("/api/pokedex/", function(req, res) {
+    db.Pokedex.create({
+      pokemon_id: req.body.pokemon_id,
+      isCaptured: req.body.isCaptured,
+      user_id: req.body.user_id
+    }).then((dbPokedex) => {
+      res.json(dbPokedex);
+    })
+  });
+
   app.get("/api/pokemon_data", function(req, res) {
     db.Pokemon.findAll().then((pokemon) => {
       res.json(pokemon);
