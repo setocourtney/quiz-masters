@@ -1,6 +1,12 @@
 var db = require("../models");
-
+// no path specific
+const Op = require("Sequelize").Op;
+// const Op = db.Sequelize.Op;
 module.exports = function(app) {
+
+  app.get("/", function(req, res) {
+    res.render("start");
+  });
 
   app.get('/play', function(req, res) {
     // db.Questions.findAll().then((questions) => {
@@ -31,7 +37,28 @@ module.exports = function(app) {
       res.render("battle", { pokemon: pokemon[0] })
 
     });
-  })
+  });
+
+  app.get("/pokedex/:user_id", function(req, res) {
+    //grab user's caught pokemon id values
+    db.Pokedex.findAll({
+      // need to change pokemon_id to match pokeId in Pokemon.js 
+      attributes: "pokemon_id",
+      where: {
+        user_id: req.params.user_id
+      }
+    }).then((pokemonId) => {
+      //grabs pokemon stats from pokemon database from user's caught pokemon json
+      db.Pokemon.findAll({
+        where: {
+          [Op.or]: pokemonId
+        }
+      }).then((pokemon) => {
+        res.render("pokedex", { pokemon: pokemon });
+      });
+    });
+  });
+
 
   app.get("/api/questions/:type_id", function(req, res) {
     db.Questions.findAll({
