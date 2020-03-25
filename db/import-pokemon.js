@@ -14,7 +14,9 @@ var transform = csv.transform(function(row) {
     const pokemon = {
         pokeId: row['PokeId'],
         name: row['Name'],
+        typeOneId: row["Type 1 ID"],
         typeOne: row['Type 1'],
+        typeTwoId: row["Type 2 ID"],
         typeTwo: row['Type 2'],
         total: row['Total'],
         hp: row['HP'],
