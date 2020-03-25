@@ -3,6 +3,11 @@ form.login {
   margin-top: 50px;
 }
 
+h1, h2, h3, h4 {
+  font-family: 'Press Start 2P';
+
+}
+
 body {
   font-family: 'Press Start 2P';
   text-align: center;
@@ -51,12 +56,17 @@ div.relative {
   border: 1px solid black;
   margin: 15px 0 15px 0;
   padding: 10px;
+
 }
 
 .answer {
   border: 1px solid black;
   margin: 15px 0 15px 0;
   padding: 10px;
+}
+
+.answer:hover {
+  background-color: aquamarine;
 }
 
 #myModal {

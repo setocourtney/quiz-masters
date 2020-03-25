@@ -97,34 +97,47 @@
     <div class="modal-content">
 
       <div class="modal-body">
-        <h4>Pokemon Name</h4>
-        <h4></h4>
+
+        <h4 id="pokemon-name"></h4>
+        
         <img src="" class="pokepic">
+
         <br><br>
-        <div class="question">
-            
+
+        <div class="test">
+
+            <div class="question">
+                
+            </div>
+
+            <div class="answers">
+
+                <div class="answer" id="option1">
+                    Answer 1
+                </div>
+
+                <div class="answer" id="option2">
+                    Answer 2
+                </div>
+
+                <div class="answer" id="option3">
+                    Answer 3
+                </div>
+
+                <div class="answer" id="option4">
+                    Answer 4
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="answer rounded" id="option1">
-            Answer 1
-        </div>
+        <div class="modal-footer">
 
-        <div class="answer rounded" id="option2">
-            Answer 2
-        </div>
-
-        <div class="answer rounded" id="option3">
-            Answer 3
-        </div>
-
-        <div class="answer rounded" id="option4">
-            Answer 4
         </div>
 
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Run Away</button>
-      </div>
+
     </div>
 
   </div>
@@ -175,6 +188,8 @@ let choosePokeSpots = function() {
 
 choosePokeSpots();
 
+
+
 $('.grass').on('click', function() {
     console.log($(this).attr("id"))
     let pokeNum = "";
@@ -182,7 +197,37 @@ $('.grass').on('click', function() {
         console.log('You found a Pokemon!')
         pokeNum = Math.floor(Math.random() * 3 + 1);
         console.log(pokeNum);
-    }
+        $('.test').replaceWith(`<div class="test">
+
+                                        <div class="question">
+                                            
+                                        </div>
+
+                                        <div class="answers">
+
+                                            <div class="answer" id="option1">
+                                                Answer 1
+                                            </div>
+
+                                            <div class="answer" id="option2">
+                                                Answer 2
+                                            </div>
+
+                                            <div class="answer" id="option3">
+                                                Answer 3
+                                            </div>
+
+                                            <div class="answer" id="option4">
+                                                Answer 4
+                                            </div>
+
+                                        </div>
+
+                                    </div>`)
+        $('.modal-footer').replaceWith(`
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="next" data-dismiss="modal">Run Away</button>
+                    </div>`)
     fetch(`/api/pokemon_data/${pokeNum}`)
     .then(function(response) {
         return response.json();
@@ -194,10 +239,11 @@ $('.grass').on('click', function() {
         let pokeNameLowercase = pokeName.toLowerCase();
         let imageURL = 'https://github.com/setocourtney/quiz-masters/blob/front-end/images/' + pokeNameLowercase + '.png?raw=true'
         
+        $('#pokemon-name').replaceWith(`<h4 id="pokemon-name">${json.name}</h4>`)
         $('.pokepic').attr('src', imageURL)
-            let pokemoneType = json.typeOneId
+            let pokemonType = json.typeOneId
 
-            fetch(`../api/questions/${pokemoneType}`)
+            fetch(`../api/questions/${pokemonType}`)
             .then(function(results) {
                 return results.json();
             }).then(function(questions) {
@@ -205,21 +251,61 @@ $('.grass').on('click', function() {
 
                 let answers = [];
 
-                let chosenQuestions = Math.floor(Math.random() * questions.length)
-                console.log(chosenQuestions)
-                document.getElementByClass("question").innerHTML = questions[chosenQuestions].question
-                document.getElementById("option1").innerHTML = questions[chosenQuestions].answer
+                let chosenQuestion = Math.floor(Math.random() * questions.length)
+                console.log(chosenQuestion)
 
-                $('#option1').on('click', function() {
+                $('.question').replaceWith(`<div class="question">${questions[chosenQuestion].question}</div>`)
+                $('#option1').replaceWith(`<div class="answer" data-answer="true" id="option1">${questions[chosenQuestion].answer}</div>`)
 
+
+
+                let firstAnswer = {
+                    option: questions[chosenQuestion].answer,
+                    order: Math.random(),
+                    isAnswer: true
+                    }
+                console.log(firstAnswer)
+
+                answers.push(firstAnswer)
+
+
+                $('.answer').on('click', function() {
+                    if ($(this).attr('data-answer') === "true") {
+                        console.log("CORRECT")
+                        $(this).attr('style', 'background-color:rgb(138,255,147);border:3px solid green')
+                        $('.answers').attr('style','pointer-events:none');
+                        $('#next').replaceWith(`<button type="button" class="btn btn-primary" id="next"> NEXT >> </button>`)
+                        $('#next').on('click', function() {
+                            $('.modal-footer').replaceWith(`<div class="modal-footer">`);
+                            $('.test').replaceWith(
+                                `<div class="test">
+                                    ${json.name} was impressed by your knowledge. 
+                                    Would you like ${json.name} you on your journey? 
+                                    <br><br>
+                                <button type="button" class="btn btn-primary" id="capture">Capture!</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Part ways.</button>
+                                <br><br>
+                                </div>
+                                `
+                            )
+                            $('#capture').on('click', function() {
+                                $('.test').replaceWith(`<div class="test">
+                                    ${json.name} has join your team! 
+                                    <br><br>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Let's go!</button>
+                                    <br><br>
+                                    </div>
+                                    `)
+                            })
+                        })
+                    } else {
+                        $(this).attr('style', 'background-color:rgb(255,179,182);border:3px solid red')
+                        $('*[data-answer="true"]').attr('style', 'background-color:rgb(138,255,147);border:3px solid green')
+                        $('.answers').attr('style','pointer-events:none');
+                        $('#next').replaceWith(`<button type="button" class="btn btn-primary" id="next"> NEXT >> </button>`)
+                }
+        
                 })
-
-                /*let firstAnswer = {
-                    answer:questions[chosenQuestions].answer,
-                    order: "0"
-                    }*/
-
-                /*answers.push(firstAnswer)*/
 
                 /*let choosePokeSpots = function() {
                 for (i = 0; i < 3; i++) {
@@ -240,7 +326,7 @@ $('.grass').on('click', function() {
 
             })
     })
-})
+}})
 
 </script>
 

@@ -38,15 +38,15 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/pokemon_data/:pokeId", function(req, res) {
-    db.Pokemon.findAll({
-      where: {
-        pokeId: req.params.pokeId
-      }
-    }).then((pokemon) => {
-      res.json(pokemon);
-    });
-  });
+  // app.get("/api/pokemon_data/:pokeId", function(req, res) {
+  //   db.Pokemon.findAll({
+  //     where: {
+  //       pokeId: req.params.pokeId
+  //     }
+  //   }).then((pokemon) => {
+  //     res.json(pokemon);
+  //   });
+  // });
 
   app.get("/api/pokemon_data/:id", function(req, res) {
     db.Pokemon.findOne({
