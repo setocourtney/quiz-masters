@@ -4,6 +4,10 @@ const Op = require("Sequelize").Op;
 // const Op = db.Sequelize.Op;
 module.exports = function(app) {
 
+  app.get("/", function(req, res) {
+    res.render("start");
+  });
+
   app.get('/play', function(req, res) {
     // db.Questions.findAll().then((questions) => {
     //   res.render('index', { questions: questions});
