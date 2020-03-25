@@ -100,24 +100,24 @@
         <h4>Pokemon Name</h4>
         <h4></h4>
         <img src="" class="pokepic">
-
+        <br><br>
         <div class="question">
-            Question
+            
         </div>
 
-        <div class="answer rounded" id="answer1">
+        <div class="answer rounded" id="option1">
             Answer 1
         </div>
 
-        <div class="answer rounded" id="answer2">
+        <div class="answer rounded" id="option2">
             Answer 2
         </div>
 
-        <div class="answer rounded" id="answer3">
+        <div class="answer rounded" id="option3">
             Answer 3
         </div>
 
-        <div class="answer rounded" id="answer4">
+        <div class="answer rounded" id="option4">
             Answer 4
         </div>
 
@@ -180,20 +180,65 @@ $('.grass').on('click', function() {
     let pokeNum = "";
     if (pokeSpots.includes($(this).attr("id")) === true) {
         console.log('You found a Pokemon!')
-        pokeNum = Math.floor(Math.random() * 151);
+        pokeNum = Math.floor(Math.random() * 3 + 1);
         console.log(pokeNum);
     }
-    fetch(`../api/pokemon_data/${pokeNum}`)
+    fetch(`/api/pokemon_data/${pokeNum}`)
     .then(function(response) {
         return response.json();
     })
     .then(function(json) {
         console.log(json);
-        let pokeName = json[0].name;
+        let pokeName = json.name;
         console.log(pokeName);
         let pokeNameLowercase = pokeName.toLowerCase();
         let imageURL = 'https://github.com/setocourtney/quiz-masters/blob/front-end/images/' + pokeNameLowercase + '.png?raw=true'
+        
         $('.pokepic').attr('src', imageURL)
+            let pokemoneType = json.typeOneId
+
+            fetch(`../api/questions/${pokemoneType}`)
+            .then(function(results) {
+                return results.json();
+            }).then(function(questions) {
+                console.log(questions)
+
+                let answers = [];
+
+                let chosenQuestions = Math.floor(Math.random() * questions.length)
+                console.log(chosenQuestions)
+                document.getElementByClass("question").innerHTML = questions[chosenQuestions].question
+                document.getElementById("option1").innerHTML = questions[chosenQuestions].answer
+
+                $('#option1').on('click', function() {
+
+                })
+
+                /*let firstAnswer = {
+                    answer:questions[chosenQuestions].answer,
+                    order: "0"
+                    }*/
+
+                /*answers.push(firstAnswer)*/
+
+                /*let choosePokeSpots = function() {
+                for (i = 0; i < 3; i++) {
+                    let selectedSpot = spots[Math.floor(Math.random() * spots.length)];
+                    let noDupes = function() {
+                    if (answers.includes(selectedSpot) === true) {
+                        selectedSpot = spots[Math.floor(Math.random() * spots.length)];
+                        console.log('There was a duplicate')
+                        noDupes();
+                    }
+                    }   
+                    noDupes();
+                    
+                    answers.push(selectedSpot);
+                }
+            }*/
+
+
+            })
     })
 })
 
