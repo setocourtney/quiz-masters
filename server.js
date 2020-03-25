@@ -32,7 +32,6 @@ db.sequelize.sync().then(function() {
 
     // Import csv data after sequelize tables have been initialized
     require("./db/import-questions.js");
-    require("./db/import-pokemon-type.js");
     require("./db/import-pokemon.js");
 
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
