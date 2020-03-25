@@ -38,8 +38,12 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/pokemon_data", function(req, res) {
-    db.Pokemon.findAll().then((pokemon) => {
+  app.get("/api/pokemon_data/:pokeId", function(req, res) {
+    db.Pokemon.findAll({
+      where: {
+        pokeId: req.params.pokeId
+      }
+    }).then((pokemon) => {
       res.json(pokemon);
     });
   });
