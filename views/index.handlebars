@@ -99,9 +99,7 @@
       <div class="modal-body">
         <h4>Pokemon Name</h4>
         <h4></h4>
-        <div class="pokepic">
-            Pokemon Image here
-        </div>
+        <img src="" class="pokepic">
 
         <div class="question">
             Question
@@ -185,12 +183,17 @@ $('.grass').on('click', function() {
         pokeNum = Math.floor(Math.random() * 151);
         console.log(pokeNum);
     }
-    $.ajax(`../api/pokemon_data/${pokeNum}`, {
-        type: "GET"
-    }).then(response => {
+    fetch(`../api/pokemon_data/${pokeNum}`)
+    .then(function(response) {
         return response.json();
-    }).then(function(json) {
+    })
+    .then(function(json) {
         console.log(json);
+        let pokeName = json[0].name;
+        console.log(pokeName);
+        let pokeNameLowercase = pokeName.toLowerCase();
+        let imageURL = 'https://github.com/setocourtney/quiz-masters/blob/front-end/images/' + pokeNameLowercase + '.png?raw=true'
+        $('.pokepic').attr('src', imageURL)
     })
 })
 
