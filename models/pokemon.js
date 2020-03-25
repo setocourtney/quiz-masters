@@ -9,9 +9,16 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        typeOneId: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
         typeOne: {
             type: DataTypes.STRING, 
             allowNull: false
+        },
+        typeTwoId: {
+            type: DataTypes.INTEGER
         },
         typeTwo: {
             type: DataTypes.STRING
