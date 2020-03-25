@@ -2,8 +2,6 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-
-  // -- Game Features --
   app.get("/api/questions/:type_id", function(req, res) {
     db.Questions.findAll({
       where: {
@@ -20,8 +18,12 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/pokedex/", function(req, res) {
-    db.Pokedex.findAll({}).then((dbPokedex) => {
+  app.get("/api/pokedex/:id", function(req, res) {
+    db.Pokedex.findAll({
+      where: {
+        user_id: req.params.id
+      }
+    }).then((dbPokedex) => {
       res.json(dbPokedex);
     });
   });
