@@ -1,15 +1,13 @@
-#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+PokeId,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
 1,Bulbasaur,Grass,Poison,318,45,49,49,65,65,45,1,false
 2,Ivysaur,Grass,Poison,405,60,62,63,80,80,60,1,false
 3,Venusaur,Grass,Poison,525,80,82,83,100,100,80,1,false
-3,VenusaurMega Venusaur,Grass,Poison,625,80,100,123,122,120,80,1,false
 4,Charmander,Fire,,309,39,52,43,60,50,65,1,false
 5,Charmeleon,Fire,,405,58,64,58,80,65,80,1,false
 6,Charizard,Fire,Flying,534,78,84,78,109,85,100,1,false
 7,Squirtle,Water,,314,44,48,65,50,64,43,1,false
 8,Wartortle,Water,,405,59,63,80,65,80,58,1,false
 9,Blastoise,Water,,530,79,83,100,85,105,78,1,false
-9,BlastoiseMega Blastoise,Water,,630,79,103,120,135,115,78,1,false
 10,Caterpie,Bug,,195,45,30,35,20,20,45,1,false
 11,Metapod,Bug,,205,50,20,55,25,25,30,1,false
 12,Butterfree,Bug,Flying,395,60,45,50,90,80,70,1,false
