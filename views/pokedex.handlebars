@@ -1,0 +1,31 @@
+
+<div>
+    <h1>
+        POKÉDEX
+    </h1>
+</div>
+
+<main> 
+
+    <div class="grid-container">
+         <div class="grid-x grid-margin-x small-up-2 medium-up-3">
+
+        {{#each pokemon}}
+            <div class="cell">
+                <div class="card">
+                    <div class="card-section">
+                        <img src="https://github.com/setocourtney/quiz-masters/blob/master/public/assets/images/{{this.name}}.png?raw=true">
+                    </div>
+                    <div class="card-section">
+                        <h4>{{this.name}}</h4>
+                        <p>Attack Value: {{this.attack}}</p>
+                        <p>Legendary: {{this.legendary}}</p>
+                </div>
+            </div>
+
+        {{/each}}
+
+        </div>
+    </div>
+
+</main>
