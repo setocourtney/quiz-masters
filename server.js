@@ -8,6 +8,13 @@ var express = require("express");
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
 
+var session = require("express-session");
+
+// Setting up port and requiring models for syncing
+var PORT = process.env.PORT || 8080;
+var db = require("./models");
+
+// Creating express app and configuring middleware needed for authentication
 var app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -30,20 +37,22 @@ var db = require("./models");
 
 
 
+
 // Requiring our routes
-require("./routes/question-routes.js")(app);
-require("./db/import-questions.js");
-require("./db/import-pokemon-type.js");
-require("./db/parse.js");
+require("./routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
+
+    // Import csv data after sequelize tables have been initialized
+    require("./db/import-questions.js");
+    require("./db/import-pokemon-type.js");
+    require("./db/import-pokemon.js");
+
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
-    // // temporary fix, will create duplicate values each time the server is run 
-    // require("./db/parse.js");
-    // text for checking merge success"
-    // console.log("This is a git merge attempt placeholder");
+
   });
 });
 

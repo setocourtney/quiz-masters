@@ -2,12 +2,12 @@ module.exports = function(sequelize, DataTypes) {
     const Pokemon = sequelize.define("Pokemon", {
         pokeId: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         name: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true
         },
         typeOne: {
             type: DataTypes.STRING, 
