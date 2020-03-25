@@ -2,3 +2,480 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+body {
+  font-family: 'Press Start 2P';
+  text-align: center;
+}
+
+div.relative {
+  position: relative;
+  height: 540px;
+  width: 540px;
+  margin: 0 auto;
+}
+
+#field {
+  position: relative;
+  height: 540px;
+  width: 540px;
+}
+.grass {
+  height: 60px;
+  width: 60px;
+}
+#absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.battle {
+  display: none;
+  text-align: center;
+  /* height: 500px; */
+  width: 500px;
+  border: 1px solid black;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.pokepic {
+  border: 1px solid black;
+  height: 200px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.question {
+  border: 1px solid black;
+  margin: 15px 0 15px 0;
+  padding: 10px;
+}
+
+.answer {
+  border: 1px solid black;
+  margin: 15px 0 15px 0;
+  padding: 10px;
+}
+
+#myModal {
+  text-align: center;
+}
+
+.modal-body {
+  text-align: center;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.modal-footer {
+  text-align: center;
+}
+
+#A1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#A2 {
+  position: absolute;
+  top: 60px;
+  left: 0;
+}
+#A3 {
+  position: absolute;
+  top: 120px;
+  left: 0;
+}
+#A4 {
+  position: absolute;
+  top: 180px;
+  left: 0;
+}
+#A5 {
+  position: absolute;
+  top: 240px;
+  left: 0;
+}
+#A6 {
+  position: absolute;
+  top: 300px;
+  left: 0;
+}
+#A7 {
+  position: absolute;
+  top: 360px;
+  left: 0;
+}
+#A8 {
+  position: absolute;
+  top: 420px;
+  left: 0;
+}
+#A9 {
+  position: absolute;
+  top: 480px;
+  left: 0;
+}
+#B1 {
+  position: absolute;
+  top: 0;
+  left: 60px;
+}
+#B2 {
+  position: absolute;
+  top: 60px;
+  left: 60px;
+}
+#B3 {
+  position: absolute;
+  top: 120px;
+  left: 60px;
+}
+#B4 {
+  position: absolute;
+  top: 180px;
+  left: 60px
+}
+#B5 {
+  position: absolute;
+  top: 240px;
+  left: 60px;
+}
+#B6 {
+  position: absolute;
+  top: 300px;
+  left: 60px;
+}
+#B7 {
+  position: absolute;
+  top: 360px;
+  left: 60px;
+}
+#B8 {
+  position: absolute;
+  top: 420px;
+  left: 60px;
+}
+#B9 {
+  position: absolute;
+  top: 480px;
+  left: 60px;
+}
+#C1 {
+  position: absolute;
+  top: 0;
+  left: 120px;
+}
+#C2 {
+  position: absolute;
+  top: 60px;
+  left: 120px;
+}
+#C3 {
+  position: absolute;
+  top: 120px;
+  left: 120px;
+}
+#C4 {
+  position: absolute;
+  top: 180px;
+  left: 120px;
+}
+#C5 {
+  position: absolute;
+  top: 240px;
+  left: 120px;
+}
+#C6 {
+  position: absolute;
+  top: 300px;
+  left: 120px;
+}
+#C7 {
+  position: absolute;
+  top: 360px;
+  left: 120px;
+}
+#C8 {
+  position: absolute;
+  top: 420px;
+  left: 120px;
+}
+#C9 {
+  position: absolute;
+  top: 480px;
+  left: 120px;
+}
+#D1 {
+  position: absolute;
+  top: 0;
+  left: 180px;
+}
+#D2 {
+  position: absolute;
+  top: 60px;
+  left: 180px;
+}
+#D3 {
+  position: absolute;
+  top: 120px;
+  left: 180px;
+}
+#D4 {
+  position: absolute;
+  top: 180px;
+  left: 180px;
+}
+#D5 {
+  position: absolute;
+  top: 240px;
+  left: 180px;
+}
+#D6 {
+  position: absolute;
+  top: 300px;
+  left: 180px;
+}
+#D7 {
+  position: absolute;
+  top: 360px;
+  left: 180px;
+}
+#D8 {
+  position: absolute;
+  top: 420px;
+  left: 180px;
+}
+#D9 {
+  position: absolute;
+  top: 480px;
+  left: 180px;
+}
+#E1 {
+  position: absolute;
+  top: 0;
+  left: 240px;
+}
+#E2 {
+  position: absolute;
+  top: 60px;
+  left: 240px;
+}
+#E3 {
+  position: absolute;
+  top: 120px;
+  left: 240px;
+}
+#E4 {
+  position: absolute;
+  top: 180px;
+  left: 240px;
+}
+#E5 {
+  position: absolute;
+  top: 240px;
+  left: 240px;
+}
+#E6 {
+  position: absolute;
+  top: 300px;
+  left: 240px;
+}
+#E7 {
+  position: absolute;
+  top: 360px;
+  left: 240px;
+}
+#E8 {
+  position: absolute;
+  top: 420px;
+  left: 240px;
+}
+#E9 {
+  position: absolute;
+  top: 480px;
+  left: 240px;
+}
+#F1 {
+  position: absolute;
+  top: 0;
+  left: 300px;
+}
+#F2 {
+  position: absolute;
+  top: 60px;
+  left: 300px;
+}
+#F3 {
+  position: absolute;
+  top: 120px;
+  left: 300px;
+}
+#F4 {
+  position: absolute;
+  top: 180px;
+  left: 300px;
+}
+#F5 {
+  position: absolute;
+  top: 240px;
+  left: 300px;
+}
+#F6 {
+  position: absolute;
+  top: 300px;
+  left: 300px;
+}
+#F7 {
+  position: absolute;
+  top: 360px;
+  left: 300px;
+}
+#F8 {
+  position: absolute;
+  top: 420px;
+  left: 300px;
+}
+#F9 {
+  position: absolute;
+  top: 480px;
+  left: 300px;
+}
+#G1 {
+  position: absolute;
+  top: 0;
+  left: 360px;
+}
+#G2 {
+  position: absolute;
+  top: 60px;
+  left: 360px;
+}
+#G3 {
+  position: absolute;
+  top: 120px;
+  left: 360px;
+}
+#G4 {
+  position: absolute;
+  top: 180px;
+  left: 360px;
+}
+#G5 {
+  position: absolute;
+  top: 240px;
+  left: 360px;
+}
+#G6 {
+  position: absolute;
+  top: 300px;
+  left: 360px;
+}
+#G7 {
+  position: absolute;
+  top: 360px;
+  left: 360px;
+}
+#G8 {
+  position: absolute;
+  top: 420px;
+  left: 360px;
+}
+#G9 {
+  position: absolute;
+  top: 480px;
+  left: 360px;
+}
+#H1 {
+  position: absolute;
+  top: 0;
+  left: 420px;
+}
+#H2 {
+  position: absolute;
+  top: 60px;
+  left: 420px;
+}
+#H3 {
+  position: absolute;
+  top: 120px;
+  left: 420px;
+}
+#H4 {
+  position: absolute;
+  top: 180px;
+  left: 420px;
+}
+#H5 {
+  position: absolute;
+  top: 240px;
+  left: 420px;
+}
+#H6 {
+  position: absolute;
+  top: 300px;
+  left: 420px;
+}
+#H7 {
+  position: absolute;
+  top: 360px;
+  left: 420px;
+}
+#H8 {
+  position: absolute;
+  top: 420px;
+  left: 420px;
+}
+#H9 {
+  position: absolute;
+  top: 480px;
+  left: 420px;
+}
+#I1 {
+  position: absolute;
+  top: 0;
+  left: 480px;
+}
+#I2 {
+  position: absolute;
+  top: 60px;
+  left: 480px;
+}
+#I3 {
+  position: absolute;
+  top: 120px;
+  left: 480px;
+}
+#I4 {
+  position: absolute;
+  top: 180px;
+  left: 480px;
+}
+#I5 {
+  position: absolute;
+  top: 240px;
+  left: 480px;
+}
+#I6 {
+  position: absolute;
+  top: 300px;
+  left: 480px;
+}
+#I7 {
+  position: absolute;
+  top: 360px;
+  left: 480px;
+}
+#I8 {
+  position: absolute;
+  top: 420px;
+  left: 480px;
+}
+#I9 {
+  position: absolute;
+  top: 480px;
+  left: 480px;
+}
