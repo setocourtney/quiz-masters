@@ -51,7 +51,7 @@ module.exports = function(app) {
   app.get("/api/pokemon_data/:id", function(req, res) {
     db.Pokemon.findOne({
       where: {
-        pokeId: req.params.id
+        id: req.params.id
       }
     }).then((pokemon) => {
       res.json(pokemon);
