@@ -1,5 +1,5 @@
 {
-  "name": "pokequiz",
+  "name": "poke-quiz-masters",
   "version": "1.0.0",
   "description": "Trivia Game - Node application hosted on Heroku using express and mysql",
   "main": "server.js",
