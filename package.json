@@ -1,5 +1,5 @@
 {
-  "name": "quiz-masters",
+  "name": "pokequiz",
   "version": "1.0.0",
   "description": "Trivia Game - Node application hosted on Heroku using express and mysql",
   "main": "server.js",
@@ -11,7 +11,7 @@
     "watch": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "setocourtney, crispysodium, ryantm",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "2.4.3",
@@ -23,6 +23,9 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "sequelize": "^5.8.6"
+  },
+  "engines": {
+    "node": "10.16"
   },
   "devDependencies": {
     "chai": "^4.1.2",
