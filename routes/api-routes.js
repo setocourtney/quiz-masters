@@ -1,7 +1,8 @@
-var db = require("../models");
-// no path specific
+const db = require("../models");
 const Op = require("Sequelize").Op;
-// const Op = db.Sequelize.Op;
+
+const isAuthenticated = require("../config/middleware/isAuthenticated");
+
 module.exports = function(app) {
 
     // ----  POKEQUIZ ROUTES----
@@ -26,7 +27,7 @@ module.exports = function(app) {
       });
     });
 
-  app.get('/play', function(req, res) {
+  app.get('/play', isAuthenticated, function(req, res) {
     // db.Questions.findAll().then((questions) => {
     //   res.render('index', { questions: questions});
     //   res.json(questions);
@@ -39,7 +40,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get('/play/:id', function(req, res) {
+  app.get('/play/:id', isAuthenticated, function(req, res) {
 
     db.Pokemon.findOne({
       where: {
@@ -57,19 +58,29 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/pokedex/:user_id", function(req, res) {
+  app.post("/api/pokedex/", function(req, res) {
+    db.Pokedex.create({
+      pokeId: req.body.pokeId,
+      isCaptured: req.body.isCaptured,
+      userId: req.body.userId
+    }).then((dbPokedex) => {
+      res.json(dbPokedex);
+    });
+  });
+
+  app.get("/pokedex/:userId", isAuthenticated, function(req, res) {
     //grab user's caught pokemon id values
     db.Pokedex.findAll({
       // need to change pokemon_id to match pokeId in Pokemon.js 
-      attributes: "pokemon_id",
+      attributes: ["pokeId"],
       where: {
-        user_id: req.params.user_id
+        userId: req.params.userId
       }
-    }).then((pokemonId) => {
+    }).then((pokeId) => {
       //grabs pokemon stats from pokemon database from user's caught pokemon json
       db.Pokemon.findAll({
         where: {
-          [Op.or]: pokemonId
+          [Op.or]: pokeId
         }
       }).then((pokemon) => {
         res.render("pokedex", { pokemon: pokemon });

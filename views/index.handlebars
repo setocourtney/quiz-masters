@@ -226,7 +226,7 @@ $('.grass').on('click', function() {
                                     </div>`)
         $('.modal-footer').replaceWith(`
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="next" data-dismiss="modal">Run Away</button>
+                        <button type="button" class="button primary" id="next" data-dismiss="modal">Run Away</button>
                     </div>`)
     fetch(`/api/pokemon_data/${pokeNum}`)
     .then(function(response) {
@@ -274,35 +274,72 @@ $('.grass').on('click', function() {
                         console.log("CORRECT")
                         $(this).attr('style', 'background-color:rgb(138,255,147);border:3px solid green')
                         $('.answers').attr('style','pointer-events:none');
-                        $('#next').replaceWith(`<button type="button" class="btn btn-primary" id="next"> NEXT >> </button>`)
+                        $('#next').replaceWith(`<button type="button" class="button primary" id="next"> NEXT >> </button>`)
                         $('#next').on('click', function() {
                             $('.modal-footer').replaceWith(`<div class="modal-footer">`);
                             $('.test').replaceWith(
                                 `<div class="test">
                                     ${json.name} was impressed by your knowledge. 
-                                    Would you like ${json.name} you on your journey? 
+                                    Would you like ${json.name} to join you on your journey? 
                                     <br><br>
-                                <button type="button" class="btn btn-primary" id="capture">Capture!</button>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">Part ways.</button>
+                                <button type="button" class="button primary" id="capture">Capture!</button>
+                                <button type="button" class="button secondary" data-dismiss="modal" id="release">Part ways.</button>
                                 <br><br>
                                 </div>
                                 `
                             )
                             $('#capture').on('click', function() {
-                                $('.test').replaceWith(`<div class="test">
-                                    ${json.name} has join your team! 
-                                    <br><br>
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Let's go!</button>
-                                    <br><br>
-                                    </div>
-                                    `)
+                                fetch(`/api/user_data`)
+                                .then(function(results) {
+                                    return results.json();
+                                }).then(function(user) {
+                                    const addPokemon = {
+                                        pokeId: json.pokeId,
+                                        isCaptured: true,
+                                        userId: user.id
+                                    }
+                                    console.log(addPokemon);
+                                    $.ajax("api/pokedex", {
+                                        type: "POST",
+                                        data: addPokemon
+                                    }).then(function() {
+                                        console.log("pokemon added to pokedex")
+                                        $('.test').replaceWith(`<div class="test">
+                                            ${json.name} has joined your team! 
+                                            <br><br>
+                                            <button type="button" class="hollow button secondary" data-dismiss="modal">Let's go!</button>
+                                            <br><br>
+                                            </div>
+                                            `)
+                                    })
+                                })
                             })
                         })
+                        $('#release').on('click', function() {
+                                fetch(`/api/user_data`)
+                                .then(function(results) {
+                                    return results.json();
+                                }).then(function(user) {
+                                    const addPokemon = {
+                                        pokeId: json.pokeId,
+                                        isCaptured: false,
+                                        userId: user.id
+                                    }
+                                    console.log(addPokemon);
+                                    $.ajax("api/pokedex", {
+                                        type: "POST",
+                                        data: addPokemon
+                                    }).then(function() {
+                                        console.log("pokemon encounter added to pokedex")
+
+                                    })
+                                })
+                            })
                     } else {
                         $(this).attr('style', 'background-color:rgb(255,179,182);border:3px solid red')
                         $('*[data-answer="true"]').attr('style', 'background-color:rgb(138,255,147);border:3px solid green')
                         $('.answers').attr('style','pointer-events:none');
-                        $('#next').replaceWith(`<button type="button" class="btn btn-primary" id="next"> NEXT >> </button>`)
+                        $('#next').replaceWith(`<button type="button" class="button primary" id="next"> NEXT >> </button>`)
                 }
         
                 })
