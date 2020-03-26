@@ -9,8 +9,8 @@ $(document).ready(function() {
     "G1","G2","G3","G4","G5","G6","G7","G8","G9",
     "H1","H2","H3","H4","H5","H6","H7","H8","H9",
     "I1","I2","I3","I4","I5","I6","I7","I8","I9"];
-    let pokeSpots = [];
 
+    let pokeSpots = [];
 
     // choose spots where pokemon will be. if a spot is already in the array of spots chosen, it will choose another spot. 
     let choosePokeSpots = function() {
@@ -19,28 +19,22 @@ $(document).ready(function() {
     let noDupes = function() {
     if (pokeSpots.includes(selectedSpot) === true) {
         selectedSpot = spots[Math.floor(Math.random() * spots.length)];
-        console.log('There was a duplicate')
         noDupes();
     }
-    }   
+    }
     noDupes();
 
     pokeSpots.push(selectedSpot);
     }
     console.log(pokeSpots);
+
+    //making each of the spots where pokemon are activate the modal
     for (let i = 0; i < pokeSpots.length; i++) {
-    $(`#${pokeSpots[i]}`).attr({
-        'data-toggle': 'modal',
-        'data-target': '#myModal',
-        'data-backdrop': 'static',
-        'data-keyboard': 'false'
-    })
+    $(`#${pokeSpots[i]}`).attr('data-open', 'myModal')
     }
     }
 
     choosePokeSpots();
-
-
 
     $('.grass').on('click', function() {
     console.log($(this).attr("id"))
@@ -78,8 +72,8 @@ $(document).ready(function() {
                                 </div>`)
     $('.modal-footer').replaceWith(`
                 <div class="modal-footer">
-                    <button type="button" class="button primary" id="next" data-dismiss="modal">Run Away</button>
-                </div>`)
+                    <button type="button" class="button primary " id="run" data-close aria-label="Close reveal">Run Away</button>
+                </div>`).foundation();
     fetch(`/api/pokemon_data/${pokeNum}`)
     .then(function(response) {
     return response.json();
@@ -107,18 +101,69 @@ $(document).ready(function() {
             console.log(chosenQuestion)
 
             $('.question').replaceWith(`<div class="question">${questions[chosenQuestion].question}</div>`)
-            $('#option1').replaceWith(`<div class="answer" data-answer="true" id="option1">${questions[chosenQuestion].answer}</div>`)
 
+            let firstAnswer = questions[chosenQuestion].answer
 
+            console.log(firstAnswer)
+            answers.push(firstAnswer)
 
-            let firstAnswer = {
-                option: questions[chosenQuestion].answer,
+            // choosing answers
+            for (let i = 0; i < 3; i++) {
+                let otherAnswer = Math.floor(Math.random() * questions.length)
+
+                let fakeAnswerData = questions[otherAnswer].answer
+
+                //making sure there aren't duplicate answers
+                let noDupeAnswers = function() {
+                if (answers.includes(fakeAnswerData) === true) {
+                    console.log('dupe')
+                    fakeAnswerData = questions[Math.floor(Math.random() * questions.length)].answer;
+                    noDupeAnswers();
+                }
+                }
+                noDupeAnswers();
+
+                answers.push(fakeAnswerData)
+            }
+            console.log(answers)
+
+            let allAnswersData = []
+
+            // the real answer was push first and the index should be 0
+            // adding random number to sort later for the order of the answers. 
+            realAnswer = {
+                option: answers[0],
                 order: Math.random(),
                 isAnswer: true
-                }
-            console.log(firstAnswer)
+            }
 
-            answers.push(firstAnswer)
+            allAnswersData.push(realAnswer)
+
+            // starting loop to skip the real answer
+            for (let i = 1; i < answers.length; i++) {
+                let fakeAnswer = {
+                    option: answers[i],
+                    order: Math.random(),
+                    isAnswer: false
+                }
+                allAnswersData.push(fakeAnswer)
+            }
+
+            // order the array by the order number to randomize answer order
+            allAnswersData = allAnswersData.sort(function(a, b) {
+                return a.order - b.order
+            });
+
+            for (let i = 0; i < allAnswersData.length; i++) {
+                let j = i + 1
+                if (allAnswersData[i].isAnswer === true) {
+                    $(`#option${j}`).replaceWith(`<div class="answer" data-answer="true" id="option${j}">${allAnswersData[i].option}</div>`)
+                } else {
+                    $(`#option${j}`).replaceWith(`<div class="answer" id="option${j}">${allAnswersData[i].option}</div>`)
+                }
+            }
+
+
 
 
             $('.answer').on('click', function() {
@@ -126,8 +171,8 @@ $(document).ready(function() {
                     console.log("CORRECT")
                     $(this).attr('style', 'background-color:rgb(138,255,147);border:3px solid green')
                     $('.answers').attr('style','pointer-events:none');
-                    $('#next').replaceWith(`<button type="button" class="button primary" id="next"> NEXT >> </button>`)
-                    $('#next').on('click', function() {
+                    $('#run').replaceWith(`<button type="button" class="button primary" id="run"> NEXT >> </button>`)
+                    $('#run').on('click', function() {
                         $('.modal-footer').replaceWith(`<div class="modal-footer">`);
                         $('.test').replaceWith(
                             `<div class="test">
@@ -135,7 +180,7 @@ $(document).ready(function() {
                                 Would you like ${json.name} to join you on your journey? 
                                 <br><br>
                             <button type="button" class="button hallow secondary" id="capture">Capture!</button>
-                            <button type="button" id="release" class="button hallow secondary" data-dismiss="modal">Part ways.</button>
+                            <button type="button" id="release" class="button hallow secondary" data-close >Part ways.</button>
                             <br><br>
                             </div>
                             `
@@ -160,7 +205,7 @@ $(document).ready(function() {
                                     $('.test').replaceWith(`<div class="test">
                                         ${json.name} has joined your team! 
                                         <br><br>
-                                        <button type="button" class="hollow button secondary" data-dismiss="modal">Let's go!</button>
+                                        <button type="button" class="primary button " data-close >Let's go!</button>
                                         <br><br>
                                         </div>
                                         `)
@@ -191,28 +236,10 @@ $(document).ready(function() {
                     $(this).attr('style', 'background-color:rgb(255,179,182);border:3px solid red')
                     $('*[data-answer="true"]').attr('style', 'background-color:rgb(138,255,147);border:3px solid green')
                     $('.answers').attr('style','pointer-events:none');
-                    $('#next').replaceWith(`<button type="button" class="button primary" id="next"> NEXT >> </button>`)
-            }
+                    $('#next').replaceWith(`<button type="button" class="button primary" id="next" data-close > NEXT >> </button>`)
 
-            })
-
-            /*let choosePokeSpots = function() {
-            for (i = 0; i < 3; i++) {
-                let selectedSpot = spots[Math.floor(Math.random() * spots.length)];
-                let noDupes = function() {
-                if (answers.includes(selectedSpot) === true) {
-                    selectedSpot = spots[Math.floor(Math.random() * spots.length)];
-                    console.log('There was a duplicate')
-                    noDupes();
                 }
-                }   
-                noDupes();
-                
-                answers.push(selectedSpot);
-            }
-        }*/
-
-
+            })
         })
     })
     }})
