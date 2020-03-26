@@ -6,28 +6,33 @@ let countErr = 0;
 
 var input = fs.createReadStream('./db/csv/Pokemon.csv');
 var parser = csv.parse({
-		delimiter: ',',
+        // what to parse by
+        delimiter: ',',
+        // object literals instead of arrays
 		columns: true
 })
 
 var transform = csv.transform(function(row) {
+    // each row 
     const pokemon = {
         pokeId: row['PokeId'],
         name: row['Name'],
-        typeOneId: row["Type 1 ID"],
-        typeOne: row['Type 1'],
-        typeTwoId: row["Type 2 ID"],
-        typeTwo: row['Type 2'],
+        typeOneId: row["Type1_id"],
+        typeOne: row['Type1'],
+        typeTwoId: row["Type2_id"],
+        typeTwo: row['Type2'],
         total: row['Total'],
         hp: row['HP'],
         attack: row['Attack'],
         defense: row['Defense'],
-        spAtk: row['Sp. Atk'],
-        spDef: row['Sp. Def'] ,
+        spAtk: row['Sp_Atk'],
+        spDef: row['Sp_Def'] ,
         speed: row['Speed'],
         generation: row['Generation'],
         legendary: row['Legendary']
     }
+    console.log(pokemon);
+    // seeds in each row into the Pokemon model
     db.Pokemon.create(pokemon)
         .then(function() {
             // console.log('Record created')
@@ -38,7 +43,7 @@ var transform = csv.transform(function(row) {
         })
 })
 
-input.pipe(parser).pipe(transform) // async?
+input.pipe(parser).pipe(transform); // async?
 if(countErr > 0) {
     console.log("There is an error or table already exists");
 } else {

@@ -2,12 +2,12 @@ module.exports = function(sequelize, DataTypes) {
     const Pokemon = sequelize.define("Pokemon", {
         pokeId: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            unique: true
+            allowNull: false
         },
         name: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true
         },
         typeOneId: {
             type: DataTypes.INTEGER,
@@ -30,32 +30,25 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER
         },
         attack: {
-            type: DataTypes.INTEGER,
-            allowNull: false
+            type: DataTypes.INTEGER
         },
         defense: {
-            type: DataTypes.INTEGER,
-            allowNull: false
+            type: DataTypes.INTEGER
         },
         spAtk: {
-            type: DataTypes.INTEGER,
-            allowNull: false
+            type: DataTypes.INTEGER
         },
         spDef: {
-            type: DataTypes.INTEGER,
-            allowNull: false
+            type: DataTypes.INTEGER
         },
         speed: {
-            type: DataTypes.INTEGER,
-            allowNull: false
+            type: DataTypes.INTEGER
         },
         generation: {
-            type: DataTypes.INTEGER,
-            allowNull: false
+            type: DataTypes.INTEGER
         },
         legendary : {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false
+            type: DataTypes.BOOLEAN
         }
     }, {
         freezeTableName: true

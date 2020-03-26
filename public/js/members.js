@@ -8,5 +8,5 @@ $(document).ready(function() {
   $('#user-submit').on('submit', function(e) {
     e.preventDefault();
     window.location.replace(`/play`);
-});
+  });
 });
