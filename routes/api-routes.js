@@ -1,4 +1,5 @@
 const db = require("../models");
+//ensures a clean version of Op is required 
 const Op = require("Sequelize").Op;
 
 const isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -69,6 +70,7 @@ module.exports = function(app) {
   });
 
   app.get("/pokedex/:userId", isAuthenticated, function(req, res) {
+    console.log(req.params.userId);
     //grab user's caught pokemon id values
     db.Pokedex.findAll({
       // need to change pokemon_id to match pokeId in Pokemon.js 
@@ -77,6 +79,7 @@ module.exports = function(app) {
         userId: req.params.userId
       }
     }).then((pokeId) => {
+      console.log(pokeId);
       //grabs pokemon stats from pokemon database from user's caught pokemon json
       db.Pokemon.findAll({
         where: {
