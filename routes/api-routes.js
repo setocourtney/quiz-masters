@@ -28,6 +28,7 @@ module.exports = function(app) {
       });
     });
 
+  
   app.get('/play', isAuthenticated, function(req, res) {
     // db.Questions.findAll().then((questions) => {
     //   res.render('index', { questions: questions});
