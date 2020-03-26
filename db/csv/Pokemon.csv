@@ -381,15 +381,10 @@ PokeId,Name,Type 1 ID,Type 1,Type 2 ID,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp
 380,Latias,16,Dragon,5,Psychic,600,80,80,90,110,130,110,3,true
 381,Latios,16,Dragon,5,Psychic,600,80,90,80,130,110,110,3,true
 382,Kyogre,2,Water,,,670,100,100,90,150,140,90,3,true
-382,KyogrePrimal Kyogre,2,Water,,,770,100,150,90,180,160,90,3,true
 383,Groudon,14,Ground,,,670,100,150,140,100,90,90,3,true
-383,GroudonPrimal Groudon,14,Ground,1,Fire,770,100,180,160,150,90,90,3,true
 384,Rayquaza,16,Dragon,10,Flying,680,105,150,90,150,90,95,3,true
 385,Jirachi,6,Steel,5,Psychic,600,100,100,100,100,100,100,3,true
 386,DeoxysNormal Forme,5,Psychic,,,600,50,150,50,150,50,150,3,true
-386,DeoxysAttack Forme,5,Psychic,,,600,50,180,20,180,20,150,3,true
-386,DeoxysDefense Forme,5,Psychic,,,600,50,70,160,70,160,90,3,true
-386,DeoxysSpeed Forme,5,Psychic,,,600,50,95,90,95,90,180,3,true
 387,Turtwig,3,Grass,,,318,55,68,64,45,55,31,4,false
 388,Grotle,3,Grass,,,405,75,89,85,55,65,36,4,false
 389,Torterra,3,Grass,14,Ground,525,95,109,105,75,85,56,4,false
@@ -417,8 +412,6 @@ PokeId,Name,Type 1 ID,Type 1,Type 2 ID,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp
 411,Bastiodon,15,Rock,6,Steel,495,60,52,168,47,138,30,4,false
 412,Burmy,18,Bug,,,224,40,29,45,29,45,36,4,false
 413,WormadamPlant Cloak,18,Bug,3,Grass,424,60,59,85,79,105,36,4,false
-413,WormadamSandy Cloak,18,Bug,14,Ground,424,60,79,105,59,85,36,4,false
-413,WormadamTrash Cloak,18,Bug,6,Steel,424,60,69,95,69,95,36,4,false
 414,Mothim,18,Bug,10,Flying,424,70,94,50,94,50,66,4,false
 415,Combee,18,Bug,10,Flying,244,30,30,42,30,42,70,4,false
 416,Vespiquen,18,Bug,10,Flying,474,70,80,102,80,102,40,4,false
@@ -485,11 +478,6 @@ PokeId,Name,Type 1 ID,Type 1,Type 2 ID,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp
 477,Dusknoir,11,Ghost,,,525,45,100,135,65,135,45,4,false
 478,Froslass,13,Ice,11,Ghost,480,70,80,70,80,70,110,4,false
 479,Rotom,4,Electric,11,Ghost,440,50,50,77,95,77,91,4,false
-479,RotomHeat Rotom,4,Electric,1,Fire,520,50,65,107,105,107,86,4,false
-479,RotomWash Rotom,4,Electric,2,Water,520,50,65,107,105,107,86,4,false
-479,RotomFrost Rotom,4,Electric,13,Ice,520,50,65,107,105,107,86,4,false
-479,RotomFan Rotom,4,Electric,10,Flying,520,50,65,107,105,107,86,4,false
-479,RotomMow Rotom,4,Electric,3,Grass,520,50,65,107,105,107,86,4,false
 480,Uxie,5,Psychic,,,580,75,75,130,75,130,95,4,true
 481,Mesprit,5,Psychic,,,580,80,105,105,105,105,80,4,true
 482,Azelf,5,Psychic,,,580,75,125,70,125,70,115,4,true
@@ -498,13 +486,11 @@ PokeId,Name,Type 1 ID,Type 1,Type 2 ID,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp
 485,Heatran,1,Fire,6,Steel,600,91,90,106,130,106,77,4,true
 486,Regigigas,7,Normal,,,670,110,160,110,80,110,100,4,true
 487,GiratinaAltered Forme,11,Ghost,16,Dragon,680,150,100,120,100,120,90,4,true
-487,GiratinaOrigin Forme,11,Ghost,16,Dragon,680,150,120,100,120,100,90,4,true
 488,Cresselia,5,Psychic,,,600,120,70,120,75,130,85,4,false
 489,Phione,2,Water,,,480,80,80,80,80,80,80,4,false
 490,Manaphy,2,Water,,,600,100,100,100,100,100,100,4,false
 491,Darkrai,9,Dark,,,600,70,90,90,135,90,125,4,true
 492,ShayminLand Forme,3,Grass,,,600,100,100,100,100,100,100,4,true
-492,ShayminSky Forme,3,Grass,10,Flying,600,100,103,75,120,75,127,4,true
 493,Arceus,7,Normal,,,720,120,120,120,120,120,120,4,true
 494,Victini,5,Psychic,1,Fire,600,100,100,100,100,100,100,5,true
 495,Snivy,3,Grass,,,308,45,45,55,45,55,63,5,false
@@ -568,7 +554,6 @@ PokeId,Name,Type 1 ID,Type 1,Type 2 ID,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp
 553,Krookodile,14,Ground,9,Dark,519,95,117,80,65,70,92,5,false
 554,Darumaka,1,Fire,,,315,70,90,45,15,45,50,5,false
 555,DarmanitanStandard Mode,1,Fire,,,480,105,140,55,30,55,95,5,false
-555,DarmanitanZen Mode,1,Fire,5,Psychic,540,105,30,105,140,105,55,5,false
 556,Maractus,3,Grass,,,461,75,86,67,106,67,60,5,false
 557,Dwebble,18,Bug,15,Rock,325,50,65,85,35,35,55,5,false
 558,Crustle,18,Bug,15,Rock,475,70,95,125,65,75,45,5,false
@@ -655,20 +640,13 @@ PokeId,Name,Type 1 ID,Type 1,Type 2 ID,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp
 639,Terrakion,15,Rock,17,Fighting,580,91,129,90,72,90,108,5,true
 640,Virizion,3,Grass,17,Fighting,580,91,90,72,90,129,108,5,true
 641,TornadusIncarnate Forme,10,Flying,,,580,79,115,70,125,80,111,5,true
-641,TornadusTherian Forme,10,Flying,,,580,79,100,80,110,90,121,5,true
 642,ThundurusIncarnate Forme,4,Electric,10,Flying,580,79,115,70,125,80,111,5,true
-642,ThundurusTherian Forme,4,Electric,10,Flying,580,79,105,70,145,80,101,5,true
 643,Reshiram,16,Dragon,1,Fire,680,100,120,100,150,120,90,5,true
 644,Zekrom,16,Dragon,4,Electric,680,100,150,120,120,100,90,5,true
 645,LandorusIncarnate Forme,14,Ground,10,Flying,600,89,125,90,115,80,101,5,true
-645,LandorusTherian Forme,14,Ground,10,Flying,600,89,145,90,105,80,91,5,true
 646,Kyurem,16,Dragon,13,Ice,660,125,130,90,130,90,95,5,true
-646,KyuremBlack Kyurem,16,Dragon,13,Ice,700,125,170,100,120,90,95,5,true
-646,KyuremWhite Kyurem,16,Dragon,13,Ice,700,125,120,90,170,100,95,5,true
 647,KeldeoOrdinary Forme,2,Water,17,Fighting,580,91,72,90,129,90,108,5,false
-647,KeldeoResolute Forme,2,Water,17,Fighting,580,91,72,90,129,90,108,5,false
 648,MeloettaAria Forme,7,Normal,5,Psychic,600,100,77,77,128,128,90,5,false
-648,MeloettaPirouette Forme,7,Normal,17,Fighting,600,100,128,90,77,77,128,5,false
 649,Genesect,18,Bug,6,Steel,600,71,120,95,120,95,99,5,false
 650,Chespin,3,Grass,,,313,56,61,65,48,45,38,6,false
 651,Quilladin,3,Grass,,,405,61,78,95,56,58,57,6,false
@@ -699,11 +677,9 @@ PokeId,Name,Type 1 ID,Type 1,Type 2 ID,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp
 676,Furfrou,7,Normal,,,472,75,80,60,65,90,102,6,false
 677,Espurr,5,Psychic,,,355,62,48,54,63,60,68,6,false
 678,MeowsticMale,5,Psychic,,,466,74,48,76,83,81,104,6,false
-678,MeowsticFemale,5,Psychic,,,466,74,48,76,83,81,104,6,false
 679,Honedge,6,Steel,11,Ghost,325,45,80,100,35,37,28,6,false
 680,Doublade,6,Steel,11,Ghost,448,59,110,150,45,49,35,6,false
 681,AegislashBlade Forme,6,Steel,11,Ghost,520,60,150,50,150,50,60,6,false
-681,AegislashShield Forme,6,Steel,11,Ghost,520,60,50,150,50,150,60,6,false
 682,Spritzee,8,Fairy,,,341,78,52,60,63,65,23,6,false
 683,Aromatisse,8,Fairy,,,462,101,72,72,99,89,29,6,false
 684,Swirlix,8,Fairy,,,341,62,48,66,59,57,49,6,false
