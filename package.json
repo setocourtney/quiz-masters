@@ -1,5 +1,5 @@
 {
-  "name": "quiz-masters",
+  "name": "poke-quiz-masters",
   "version": "1.0.0",
   "description": "Trivia Game - Node application hosted on Heroku using express and mysql",
   "main": "server.js",
@@ -10,8 +10,11 @@
     "fix": "eslint --fix .",
     "watch": "nodemon server.js"
   },
+  "engines": {
+    "node": "10.16.x"
+  },
   "keywords": [],
-  "author": "",
+  "author": "setocourtney, crispysodium, ryantm",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "2.4.3",

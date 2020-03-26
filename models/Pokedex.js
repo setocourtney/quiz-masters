@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Pokedex = sequelize.define("Pokedex", {
-      pokemon_id: {
+      pokeId: {
         type: DataTypes.INTEGER,
         allowNull: false
       },
@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.BOOLEAN,
         allowNull: false
       },
-      user: {
+      userId: {
         type: DataTypes.INTEGER,
         allowNull: false
       }
