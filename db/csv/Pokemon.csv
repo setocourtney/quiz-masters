@@ -1,4 +1,4 @@
-PokeId,Name,Type 1 ID,Type 1,Type 2 ID,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+PokeId,Name,Type1_id,Type1,Type2_id,Type2,Total,HP,Attack,Defense,Sp_Atk,Sp_Def,Speed,Generation,Legendary
 1,Bulbasaur,3,Grass,12,Poison,318,45,49,49,65,65,45,1,false
 2,Ivysaur,3,Grass,12,Poison,405,60,62,63,80,80,60,1,false
 3,Venusaur,3,Grass,12,Poison,525,80,82,83,100,100,80,1,false
