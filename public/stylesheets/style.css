@@ -37,8 +37,6 @@ h1, h2, h3, h4 {
 
 }
 
-
-
 body {
   font-family: 'Press Start 2P';
   text-align: center;
@@ -519,4 +517,61 @@ div.relative {
   position: absolute;
   top: 480px;
   left: 480px;
+}
+
+/* POKEDEX */
+
+#pokedex {
+  background: red;
+  border-radius: 50px;
+  border: 5px solid orange;
+  margin: 25px;
+  padding: 25px;
+}
+
+.pokedex-card {
+  border-radius: 10px;
+  border-color: black;
+  border-width: 5px;
+}
+
+.pokedex-img {
+  min-width: 200px;
+}
+
+.circle {
+  border-radius: 50%;
+
+}
+
+#blue {
+  width: 75px;
+  height: 75px;
+  margin: 10px;
+  background: lightblue;
+  border: 5px solid white;
+}
+
+#red {
+  width: 15px;
+  height: 15px;
+  margin: 5px;
+  background: red;
+  border: 1px solid white;
+}
+
+#yellow {
+  width: 15px;
+  height: 15px;
+  margin: 5px;
+  background: yellow;
+  border: 1px solid white;
+}
+
+#green {
+  width: 15px;
+  height: 15px;
+  margin: 5px;
+  background: green;
+  border: 1px solid white;
 }

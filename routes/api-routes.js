@@ -7,17 +7,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function(app) {
 
     // ----  POKEQUIZ ROUTES----
-
-    // app.get("/api/pokemon_data/:pokeId", function(req, res) {
-    //   db.Pokemon.findAll({
-    //     where: {
-    //       pokeId: req.params.pokeId
-    //     }
-    //   }).then((pokemon) => {
-    //     res.json(pokemon);
-    //   });
-    // });
-  
+ 
     app.get("/api/pokemon_data/:id", function(req, res) {
       db.Pokemon.findOne({
         where: {
@@ -30,14 +20,7 @@ module.exports = function(app) {
 
   
   app.get('/play', isAuthenticated, function(req, res) {
-    // db.Questions.findAll().then((questions) => {
-    //   res.render('index', { questions: questions});
-    //   res.json(questions);
-    // });
     db.Pokemon.findAll().then((pokemon) => {
-      // console.log({pokemon: pokemon})
-      console.log(pokemon.length)
-
       res.render('index', { pokemon: pokemon});
     });
   });
@@ -71,7 +54,7 @@ module.exports = function(app) {
   });
 
   app.get("/pokedex/:userId", isAuthenticated, function(req, res) {
-    console.log(req.params.userId);
+
     //grab user's caught pokemon id values
     db.Pokedex.findAll({
       attributes: ["pokeId"],
