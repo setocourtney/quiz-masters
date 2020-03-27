@@ -79,12 +79,14 @@ module.exports = function(app) {
       where: {
         userId: req.params.userId
       }
-    }).then((pokeId) => {
-      console.log(pokeId);
+    }).then((results) => {
+      console.log(results);
+      const pokeIdArray = results.map((pokemon) => { return {pokeId: pokemon.pokeId} );
+      console.log(pokeIdArray);
       //grabs pokemon stats from pokemon database from user's caught pokemon json
       db.Pokemon.findAll({
         where: {
-          [Op.or]: pokeId
+          [Op.or]: pokeIdArray
         }
       }).then((pokemon) => {
         res.render("pokedex", { pokemon: pokemon });
