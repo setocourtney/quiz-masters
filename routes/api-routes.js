@@ -74,19 +74,20 @@ module.exports = function(app) {
     console.log(req.params.userId);
     //grab user's caught pokemon id values
     db.Pokedex.findAll({
-      // need to change pokemon_id to match pokeId in Pokemon.js 
       attributes: ["pokeId"],
       where: {
         userId: req.params.userId
       }
-    }).then((pokeId) => {
-      console.log(pokeId);
-      //grabs pokemon stats from pokemon database from user's caught pokemon json
+    }).then((results) => {
+      // get list of pokeIds from Pokedex object
+      const pokeIdArray = results.map((pokemon) => { return {pokeId: pokemon.pokeId}} );
+      // grabs pokemon stats from pokemon database from user's caught pokemon json
       db.Pokemon.findAll({
         where: {
-          [Op.or]: pokeId
+          [Op.or]: pokeIdArray
         }
       }).then((pokemon) => {
+
         res.render("pokedex", { pokemon: pokemon });
       });
     });
