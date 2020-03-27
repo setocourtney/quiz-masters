@@ -3,7 +3,36 @@ form.login {
   margin-top: 50px;
 }
 
+.navbar {
+  background-color: white;
+  height: 40px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: lightgray; 
+}
+
+.home {
+  float: left;
+  height: 40px;
+  padding: 5px 10px 0 8px;
+}
+
+.logo {
+  padding: 10px 0 0 0;
+
+}
+
+.home-logo {
+  height: 30px;
+}
+
+.navbar-header {
+  float: right;
+  padding: 10px 10px 0 10px;
+}
+
 h1, h2, h3, h4 {
+  padding: 10px 0 0 0;
   font-family: 'Press Start 2P';
 
 }
