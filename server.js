@@ -36,6 +36,8 @@ db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
 
     // Import csv data after sequelize tables have been initialized
+    // check if we need to import csv values and not run if it already exists
+    
     require("./db/import-questions.js");
     require("./db/import-pokemon.js");
 

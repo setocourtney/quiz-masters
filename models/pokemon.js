@@ -2,7 +2,8 @@ module.exports = function(sequelize, DataTypes) {
     const Pokemon = sequelize.define("Pokemon", {
         pokeId: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         name: {
             type: DataTypes.STRING,
@@ -18,10 +19,12 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
         },
         typeTwoId: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            defaultValue: null
         },
         typeTwo: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            defaultValue: null
         },
         total: {
             type: DataTypes.INTEGER

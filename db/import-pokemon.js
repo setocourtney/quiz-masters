@@ -31,11 +31,10 @@ var transform = csv.transform(function(row) {
         generation: row['Generation'],
         legendary: row['Legendary']
     }
-    console.log(pokemon);
     // seeds in each row into the Pokemon model
     db.Pokemon.create(pokemon)
         .then(function() {
-            // console.log('Record created')
+            // console.log('Record created')            
         })
         .catch(function(err) {
             countErr++;

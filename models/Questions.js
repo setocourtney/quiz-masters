@@ -2,7 +2,7 @@ module.exports = function(sequelize, DataTypes) {
     var Questions = sequelize.define("Questions", {
       daily_double: {
         type: DataTypes.BOOLEAN,
-        allowNull: false
+        defaultValue: false
       },
       category: {
         type: DataTypes.STRING,

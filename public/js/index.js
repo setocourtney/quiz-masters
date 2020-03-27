@@ -185,7 +185,7 @@ $(document).ready(function() {
                             </div>
                             `
                         )
-                        //
+                        
                         $('#capture').on('click', function() {
                             fetch(`/api/user_data`)
                             .then(function(results) {
@@ -213,25 +213,6 @@ $(document).ready(function() {
                             })
                         })
                     })
-                    $('#release').on('click', function() {
-                            fetch(`/api/user_data`)
-                            .then(function(results) {
-                                return results.json();
-                            }).then(function(user) {
-                                const addPokemon = {
-                                    pokeId: json.pokeId,
-                                    isCaptured: false,
-                                    userId: user.id
-                                }
-                                console.log(addPokemon);
-                                $.ajax("api/pokedex", {
-                                    type: "POST",
-                                    data: addPokemon
-                                }).then(function() {
-                                    console.log("pokemon encounter added to pokedex")
-                                })
-                            })
-                        })
                 } else {
                     $(this).attr('style', 'background-color:rgb(255,179,182);border:3px solid red')
                     $('*[data-answer="true"]').attr('style', 'background-color:rgb(138,255,147);border:3px solid green')
