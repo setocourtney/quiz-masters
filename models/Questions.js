@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Questions = sequelize.define("Questions", {
-      daily_double: {
+      dailyDouble: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
       },
@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false
       },
-      type_id: {
+      typeId: {
         type: DataTypes.INTEGER,
         allowNull: false
       }

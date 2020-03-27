@@ -35,7 +35,7 @@ module.exports = function(app) {
     }).then((pokemon) => {
       db.Questions.findAll({
         where: {
-          type_id: pokemon.type
+          typeId: pokemon.type
         }
       }).then(questions)
       res.render("battle", { pokemon: pokemon[0] })
@@ -77,10 +77,10 @@ module.exports = function(app) {
   });
 
 
-  app.get("/api/questions/:type_id", function(req, res) {
+  app.get("/api/questions/:typeId", function(req, res) {
     db.Questions.findAll({
       where: {
-        type_id: req.params.type_id
+        typeId: req.params.typeId
       }
     }).then((dbQuestions) => {
       res.json(dbQuestions);
