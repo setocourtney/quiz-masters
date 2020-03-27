@@ -34,12 +34,20 @@ require("./routes/api-routes.js")(app);
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
-
-    // Import csv data after sequelize tables have been initialized
     // check if we need to import csv values and not run if it already exists
-    
-    require("./db/import-questions.js");
-    require("./db/import-pokemon.js");
+    // Import csv data after sequelize tables have been initialized
+
+    db.Pokemon.findAll().then((result) => { 
+      if (result.length == 0) {
+        require("./db/import-pokemon.js");
+      }
+    });
+
+    db.Questions.findAll().then((result) => { 
+      if (result.length == 0) {
+        require("./db/import-questions.js");
+      }
+    });
 
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
 

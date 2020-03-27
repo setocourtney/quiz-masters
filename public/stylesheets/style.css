@@ -489,3 +489,19 @@ div.relative {
   top: 480px;
   left: 480px;
 }
+
+/* POKEDEX */
+
+#pokedex {
+  background: red;
+  border-radius: 50px;
+  border: 5px solid orange;
+  margin: 25px;
+  padding: 25px;
+}
+
+#pokedex #pokedex-card {
+  border-radius: 10px;
+  border-color: black;
+  border-width: 1px;
+}

@@ -14,13 +14,13 @@
 
             {{#each pokemon}}
                 <div class="cell">
-                    <div class="card">
+                    <div class="card pokedex-card">
                         <div class="card-section">
                             <img src="https://github.com/setocourtney/quiz-masters/blob/master/public/assets/images/{{this.name}}.png?raw=true">
                         </div>
                         <div class="card-section">
-                            <h4>{{this.dataValues.name}}</h4>
-                            <h3>{{this.dataValues.typeOne}}</h3>
+                            <h3>{{this.dataValues.name}}</h4>
+                            <h4>{{this.dataValues.typeOne}}</h3>
                             <p>Attack Value: {{this.dataValues.attack}}</p>
                             <p>Legendary: {{this.dataValues.legendary}}</p>
                         </div>
