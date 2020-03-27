@@ -7,26 +7,29 @@
 
 <main> 
 
-    <div class="grid-container">
-         <div class="grid-x grid-margin-x small-up-2 medium-up-3">
+    <div id="pokedex">    
 
-        {{#each pokemon}}
-            <div class="cell">
-                <div class="card">
-                    <div class="card-section">
-                        <img src="https://github.com/setocourtney/quiz-masters/blob/master/public/assets/images/{{this.name}}.png?raw=true">
-                    </div>
-                    <div class="card-section">
-                        <h4>{{this.name}}</h4>
-                        <h3>{{this.typeOne}}</h3>
-                        <p>Attack Value: {{this.attack}}</p>
-                        <p>Legendary: {{this.legendary}}</p>
+        <div class="grid-container">
+            <div class="grid-x grid-margin-x small-up-2 medium-up-3">
+
+            {{#each pokemon}}
+                <div class="cell">
+                    <div class="card">
+                        <div class="card-section">
+                            <img src="https://github.com/setocourtney/quiz-masters/blob/master/public/assets/images/{{this.name}}.png?raw=true">
+                        </div>
+                        <div class="card-section">
+                            <h4>{{this.dataValues.name}}</h4>
+                            <h3>{{this.dataValues.typeOne}}</h3>
+                            <p>Attack Value: {{this.dataValues.attack}}</p>
+                            <p>Legendary: {{this.dataValues.legendary}}</p>
+                        </div>
                     </div>
                 </div>
+
+            {{/each}}
+
             </div>
-
-        {{/each}}
-
         </div>
     </div>
 
