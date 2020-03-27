@@ -16,11 +16,11 @@
                 <div class="cell">
                     <div class="card pokedex-card">
                         <div class="card-section">
-                            <img src="https://github.com/setocourtney/quiz-masters/blob/master/public/assets/images/{{this.name}}.png?raw=true">
+                            <img class="pokedex-img" src="/assets/images/{{this.dataValues.name}}.png?raw=true">
                         </div>
                         <div class="card-section">
                             <h3>{{this.dataValues.name}}</h4>
-                            <h4>{{this.dataValues.typeOne}}</h3>
+                            <h4>({{this.dataValues.typeOne}})</h3>
                             <p>Attack Value: {{this.dataValues.attack}}</p>
                             <p>Legendary: {{this.dataValues.legendary}}</p>
                         </div>
