@@ -509,3 +509,40 @@ div.relative {
 .pokedex-img {
   min-width: 200px;
 }
+
+.circle {
+  border-radius: 50%;
+
+}
+
+#blue {
+  width: 75px;
+  height: 75px;
+  margin: 10px;
+  background: lightblue;
+  border: 5px solid white;
+}
+
+#red {
+  width: 15px;
+  height: 15px;
+  margin: 5px;
+  background: red;
+  border: 1px solid white;
+}
+
+#yellow {
+  width: 15px;
+  height: 15px;
+  margin: 5px;
+  background: yellow;
+  border: 1px solid white;
+}
+
+#green {
+  width: 15px;
+  height: 15px;
+  margin: 5px;
+  background: green;
+  border: 1px solid white;
+}
