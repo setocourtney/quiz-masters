@@ -41,7 +41,7 @@ $(document).ready(function() {
     let pokeNum = "";
     if (pokeSpots.includes($(this).attr("id")) === true) {
     console.log('You found a Pokemon!')
-    pokeNum = Math.floor(Math.random() * 3 + 1);
+    pokeNum = Math.floor(Math.random() * 151 + 1);
     console.log(pokeNum);
     $('.test').replaceWith(`<div class="test">
 
