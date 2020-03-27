@@ -52,19 +52,6 @@
 
 <script type="text/javascript" src="js/members.js"></script>
 
-<script>
-
-  $("#get-pokedex").on("click", function() {
-    fetch(`/api/user_data`)
-    .then(function(results) {
-      return results.json();
-    }).then(function(user) {
-      window.location.replace(`/pokedex/${user.id}`);
-  })
-});
-
-</script>
-
 </body>
 
 </html>
