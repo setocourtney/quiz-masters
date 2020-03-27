@@ -79,9 +79,7 @@ $(document).ready(function() {
     return response.json();
     })
     .then(function(json) {
-    console.log(json);
     let pokeName = json.name;
-    console.log(pokeName);
     let pokeNameLowercase = pokeName.toLowerCase();
     let imageURL = 'https://github.com/setocourtney/quiz-masters/blob/front-end/images/' + pokeNameLowercase + '.png?raw=true'
 
@@ -93,12 +91,10 @@ $(document).ready(function() {
         .then(function(results) {
             return results.json();
         }).then(function(questions) {
-            console.log(questions)
 
             let answers = [];
 
             let chosenQuestion = Math.floor(Math.random() * questions.length)
-            console.log(chosenQuestion)
 
             $('.question').replaceWith(`<div class="question">${questions[chosenQuestion].question}</div>`)
 
@@ -125,7 +121,6 @@ $(document).ready(function() {
 
                 answers.push(fakeAnswerData)
             }
-            console.log(answers)
 
             let allAnswersData = []
 
