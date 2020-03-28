@@ -38,7 +38,7 @@
             <script> 
                     let pokeName = "{{this.dataValues.name}}";
                     pokeName = pokeName.toLowerCase()
-                    $('#{{this.dataValues.id}}').attr('src',"/assets/images/{{this.dataValues.name}}.png?raw=true")
+                    $('#{{this.dataValues.id}}').attr('src',`/assets/images/${pokeName}.png?raw=true`)
             </script>
 
             {{/each}}
