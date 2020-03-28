@@ -22,23 +22,6 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/play/:id", isAuthenticated, function(req, res) {
-    db.Pokemon.findOne({
-      where: {
-        pokeId: req.params.id
-      },
-      include: [db.Types]
-    }).then(pokemon => {
-      db.Questions.findAll({
-        where: {
-          typeId: pokemon.type
-        }
-      }).then(pokemon => {
-        res.render("battle", { pokemon: pokemon[0] });
-      });
-    });
-  });
-
   app.post("/api/pokedex/", function(req, res) {
     db.Pokedex.create({
       pokeId: req.body.pokeId,

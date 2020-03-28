@@ -13,6 +13,10 @@ form.login {
   border-bottom-color: lightgray; 
 }
 
+.reveal {
+  overflow-y:scroll;
+}
+
 .home {
   float: left;
   height: 40px;
