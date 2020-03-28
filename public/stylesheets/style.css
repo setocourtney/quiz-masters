@@ -38,8 +38,6 @@ form.login {
   padding: 10px 10px 0 10px;
 }
 
-
-
 h1, h2, h3, h4 {
   padding: 10px 0 0 0;
   font-family: 'Press Start 2P';
@@ -153,6 +151,38 @@ img.transparent {
     width: 360px;
     margin: 0 auto;
     top: 20px;
+  }
+
+  .reveal {
+    overflow-y: auto;
+    height: 500px;
+    font-size: .6em;
+  }
+
+  .photo {
+    position: relative;
+    width: 150px;
+    margin: 0 auto
+  }
+  
+  .pokepic {
+    border: 1px solid black;
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+  }
+  
+  .grasspic {
+    position: absolute;  
+    left: 0;
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+  
   }
 
   .plains {
@@ -584,7 +614,7 @@ img.transparent {
 .modal-body {
   text-align: center;
   margin: 0 auto;
-  width: 75%;
+  width: 90%;
 }
 
 .modal-footer {
@@ -594,7 +624,11 @@ img.transparent {
 /*grass position on desktop */
 
 @media screen and (min-width: 601px) {
-#A1 {
+.reveal {
+  height: 600px;
+}
+
+  #A1 {
   position: absolute;
   top: 0;
   left: 0;
