@@ -59,10 +59,25 @@
   </div>
 
   <div>
-    <button class="button large alert get-pokedex">POKÉDEX</a>
+    <button class="button large alert" id="get-pokedex">POKÉDEX</a>
   </div>
 
 </main>
+
+<script type="text/javascript" src="js/members.js"></script>
+
+<script>
+
+  $("#get-pokedex").on("click", function() {
+    fetch(`/api/user_data`)
+    .then(function(results) {
+      return results.json();
+    }).then(function(user) {
+      window.location.replace(`/pokedex/${user.id}`);
+  })
+});
+
+</script>
 
 </body>
 

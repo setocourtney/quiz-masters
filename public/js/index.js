@@ -35,14 +35,12 @@ $(document).ready(function() {
     }
 
     choosePokeSpots();
-
     $('.grass').on('click', function() {
-    console.log($(this).attr("id"))
     let pokeNum = "";
     if (pokeSpots.includes($(this).attr("id")) === true) {
     console.log('You found a Pokemon!')
+    $('.grasspic').toggleClass('transparent')
     pokeNum = Math.floor(Math.random() * 151 + 1);
-    console.log(pokeNum);
     $('.test').replaceWith(`<div class="test">
 
                                     <div class="question">
@@ -100,7 +98,6 @@ $(document).ready(function() {
 
             let firstAnswer = questions[chosenQuestion].answer
 
-            console.log(firstAnswer)
             answers.push(firstAnswer)
 
             // choosing answers
@@ -112,7 +109,6 @@ $(document).ready(function() {
                 //making sure there aren't duplicate answers
                 let noDupeAnswers = function() {
                 if (answers.includes(fakeAnswerData) === true) {
-                    console.log('dupe')
                     fakeAnswerData = questions[Math.floor(Math.random() * questions.length)].answer;
                     noDupeAnswers();
                 }
@@ -159,6 +155,10 @@ $(document).ready(function() {
             }
 
 
+            $('#run').on('click', function() {
+                $('.pokepic').attr('src',"/assets/sprites/quick_grass.png?raw=true")
+
+            })
 
 
             $('.answer').on('click', function() {
@@ -175,11 +175,15 @@ $(document).ready(function() {
                                 Would you like ${json.name} to join you on your journey? 
                                 <br><br>
                             <button type="button" class="button hallow secondary" id="capture">Capture!</button>
-                            <button type="button" id="release" class="button hallow secondary" data-close >Part ways.</button>
+                            <button type="button" id="release" class="button hallow secondary" data-close id="reset">Part ways.</button>
                             <br><br>
                             </div>
                             `
                         )
+
+                        $('#reset').on('click', function() {
+                            $('.pokepic').attr('src',"/assets/sprites/quick_grass.png?raw=true")
+                        })
                         
                         $('#capture').on('click', function() {
                             fetch(`/api/user_data`)
@@ -191,7 +195,6 @@ $(document).ready(function() {
                                     isCaptured: true,
                                     userId: user.id
                                 }
-                                console.log(addPokemon);
                                 $.ajax("api/pokedex", {
                                     type: "POST",
                                     data: addPokemon
@@ -200,10 +203,14 @@ $(document).ready(function() {
                                     $('.test').replaceWith(`<div class="test">
                                         ${json.name} has joined your team! 
                                         <br><br>
-                                        <button type="button" class="primary button " data-close >Let's go!</button>
+                                        <button type="button" class="primary button " data-close id="reset">Let's go!</button>
                                         <br><br>
                                         </div>
                                         `)
+                                    $('#reset').on('click', function() {
+                                        $('.pokepic').attr('src',"/assets/sprites/quick_grass.png?raw=true")
+
+                                    })
                                 })
                             })
                         })
@@ -212,8 +219,12 @@ $(document).ready(function() {
                     $(this).attr('style', 'background-color:rgb(255,179,182);border:3px solid red')
                     $('*[data-answer="true"]').attr('style', 'background-color:rgb(138,255,147);border:3px solid green')
                     $('.answers').attr('style','pointer-events:none');
-                    $('#next').replaceWith(`<button type="button" class="button primary" id="next" data-close > NEXT >> </button>`)
+                    $('#run').replaceWith(`<button type="button" class="button alert" id="next" data-close > ${json.name} ran away! </button>`)
+                    $('#next').on('click', function() {
+                        $('.pokepic').attr('src',"/assets/sprites/quick_grass.png?raw=true")
 
+
+                    })
                 }
             })
         })

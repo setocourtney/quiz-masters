@@ -17,28 +17,34 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <a href="/members">
-                <div class="home">
-                    <span class="logo">
-                        <img class="home-logo" src="https://github.com/setocourtney/quiz-masters/blob/master/public/assets/images/pokeball.png?raw=true" alt="pokeball-logo">
-                    </span>
-                </div>
-            </a>
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/logout">
-                    Logout
-                </a>
-            </div>
+    <header>
+        <div class="row">
+             <div class="small-12">   
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <a href="/members">
+                            <div class="home">
+                                <span class="logo">
+                                    <img class="home-logo" src="https://github.com/setocourtney/quiz-masters/blob/master/public/assets/images/pokeball.png?raw=true" alt="pokeball-logo">
+                                </span>
+                            </div>
+                        </a>
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="/logout">
+                                Logout
+                            </a>
+                        </div>
 
-            <div class="navbar-header">
-                <a class="navbar-brand" id="get-pokedex" href="/pokedex">
-                    POKÉDEX
-                </a>
+                        <div class="navbar-header">
+                            <a class="navbar-brand" id="get-pokedex" href="/pokedex">
+                                POKÉDEX
+                            </a>
+                        </div>
+                    </div>
+                </nav>
             </div>
         </div>
-    </nav>
+    </header>
     {{{ body }}}
 
 <script>
@@ -49,7 +55,7 @@
     }).then(function(user) {
       window.location.replace(`/pokedex/${user.id}`);
   })
-});
+  });
 </script>
 
 </body>
