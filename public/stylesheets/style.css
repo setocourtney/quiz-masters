@@ -14,7 +14,8 @@ form.login {
 }
 
 .reveal {
-  overflow-y:scroll;
+  overflow-y: auto;
+  height: 600px;
 }
 
 .home {
