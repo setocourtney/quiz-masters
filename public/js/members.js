@@ -9,4 +9,14 @@ $(document).ready(function() {
     e.preventDefault();
     window.location.replace(`/play`);
   });
+
+  $(".get-pokedex").on("click", function() {
+    fetch(`/api/user_data`)
+    .then(function(results) {
+      return results.json();
+    }).then(function(user) {
+      window.location.replace(`/pokedex/${user.id}`);
+  })
+  });
+
 });
