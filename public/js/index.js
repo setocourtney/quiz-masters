@@ -42,6 +42,16 @@ $(document).ready(function() {
     $('.grasspic').toggleClass('transparent')
     pokeNum = Math.floor(Math.random() * 151 + 1);
     $('.test').replaceWith(`<div class="test">
+        <div>
+        A wild a Pokemon appeared!
+    </div>
+    `)
+    $('.modal-footer').replaceWith(`
+    <div class="modal-footer">
+        <button type="button" class="button primary " id="encounter" data-close aria-label="Close reveal">Engage</button>
+    </div>`).foundation();
+    $('#encounter').on('click', function() {
+    $('.test').replaceWith(`<div class="test">
 
                                     <div class="question">
                                         
@@ -157,7 +167,9 @@ $(document).ready(function() {
 
             $('#run').on('click', function() {
                 $('.pokepic').attr('src',"/assets/sprites/quick_grass.png?raw=true")
-
+                $('#pokemon-name').replaceWith(`
+                <h4 id="pokemon-name">????????</h4>
+                `)
             })
 
 
@@ -175,14 +187,17 @@ $(document).ready(function() {
                                 Would you like ${json.name} to join you on your journey? 
                                 <br><br>
                             <button type="button" class="button hallow secondary" id="capture">Capture!</button>
-                            <button type="button" id="release" class="button hallow secondary" data-close id="reset">Part ways.</button>
+                            <button type="button" id="release" class="button hallow secondary" data-close >Part ways.</button>
                             <br><br>
                             </div>
                             `
                         )
 
-                        $('#reset').on('click', function() {
+                        $('#release').on('click', function() {
                             $('.pokepic').attr('src',"/assets/sprites/quick_grass.png?raw=true")
+                            $('#pokemon-name').replaceWith(`
+                            <h4 id="pokemon-name">????????</h4>
+                            `)
                         })
                         
                         $('#capture').on('click', function() {
@@ -203,14 +218,16 @@ $(document).ready(function() {
                                     $('.test').replaceWith(`<div class="test">
                                         ${json.name} has joined your team! 
                                         <br><br>
-                                        <button type="button" class="primary button " data-close id="reset">Let's go!</button>
+                                        <button type="button" class="primary button" id="letsgo" data-close >Let's go!</button>
                                         <br><br>
                                         </div>
                                         `)
-                                    $('#reset').on('click', function() {
-                                        $('.pokepic').attr('src',"/assets/sprites/quick_grass.png?raw=true")
-
-                                    })
+                                        $('#letsgo').on('click', function() {
+                                            $('.pokepic').attr('src',"/assets/sprites/quick_grass.png?raw=true")
+                                            $('#pokemon-name').replaceWith(`
+                                            <h4 id="pokemon-name">????????</h4>
+                                            `)
+                                        })
                                 })
                             })
                         })
@@ -222,12 +239,15 @@ $(document).ready(function() {
                     $('#run').replaceWith(`<button type="button" class="button alert" id="next" data-close > ${json.name} ran away! </button>`)
                     $('#next').on('click', function() {
                         $('.pokepic').attr('src',"/assets/sprites/quick_grass.png?raw=true")
-
-
+                        $('#pokemon-name').replaceWith(`
+                        <h4 id="pokemon-name">????????</h4>
+                        `)
                     })
                 }
             })
         })
     })
+})
+
     }})
 });
