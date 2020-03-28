@@ -34,7 +34,7 @@ module.exports = function(app) {
           typeId: pokemon.type
         }
       }).then(pokemon => {
-        res.render("battle", { pokemon: pokemon[0] })
+        res.render("battle", { pokemon: pokemon[0] });
       });
     });
   });
