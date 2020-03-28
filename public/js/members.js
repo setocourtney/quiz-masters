@@ -5,7 +5,7 @@ $(document).ready(function() {
     $(".member-name").text(data.email);
   });
 
-  $('#user-submit').on('submit', function(e) {
+  $("#user-submit").on("submit", function(e) {
     e.preventDefault();
     window.location.replace(`/play`);
   });
