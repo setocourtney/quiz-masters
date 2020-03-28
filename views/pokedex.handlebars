@@ -20,7 +20,9 @@
         </div>
         <div class="grid-container">
             <div class="grid-x grid-margin-x small-up-2 medium-up-3">
-
+        <script>
+            let pokeName = "";            
+        </script>
             {{#each pokemon}}
                 <div class="cell">
                     <div class="card pokedex-card">
@@ -36,8 +38,8 @@
                     </div>
                 </div>
             <script> 
-                    let pokeName = "{{this.dataValues.name}}";
-                    pokeName = pokeName.toLowerCase()
+                    pokeName = "{{this.dataValues.name}}";
+                    pokeName = pokeName.toLowerCase();
                     $('#{{this.dataValues.id}}').attr('src',`/assets/images/${pokeName}.png?raw=true`)
             </script>
 
