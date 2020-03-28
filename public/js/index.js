@@ -115,6 +115,7 @@ $(document).ready(function() {
       pokeNum = Math.floor(Math.random() * 151 + 1);
       $(".test").replaceWith(`<div class="test">
         <div>
+        <br><br>
         A wild a Pokemon appeared!
     </div>
     `);
@@ -290,6 +291,7 @@ $(document).ready(function() {
                       );
                       $(".test").replaceWith(
                         `<div class="test">
+                        <br><br>
                                 ${json.name} was impressed by your knowledge. 
                                 Would you like ${json.name} to join you on your journey? 
                                 <br><br>
@@ -327,6 +329,7 @@ $(document).ready(function() {
                             }).then(function() {
                               console.log("pokemon added to pokedex");
                               $(".test").replaceWith(`<div class="test">
+                              <br><br>
                                         ${json.name} has joined your team! 
                                         <br><br>
                                         <button type="button" class="primary button" id="letsgo" data-close >Let's go!</button>
