@@ -135,9 +135,43 @@ img.transparent {
   }
 
   .reveal {
+<<<<<<< HEAD
     font-size: .6em;
   }
 
+=======
+    overflow-y: auto;
+    height: 500px;
+    font-size: .6em;
+  }
+
+  .photo {
+    position: relative;
+    width: 150px;
+    margin: 0 auto
+  }
+  
+  .pokepic {
+    border: 1px solid black;
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+  }
+  
+  .grasspic {
+    position: absolute;  
+    left: 0;
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+  
+  }
+
+>>>>>>> data
   .plains {
     background-image: url("/assets/sprites/Pixel_art_grass_image.png?raw=true");
     background-size: 360px 360px;
@@ -567,7 +601,7 @@ img.transparent {
 .modal-body {
   text-align: center;
   margin: 0 auto;
-  width: 75%;
+  width: 90%;
 }
 
 .modal-footer {
@@ -577,7 +611,11 @@ img.transparent {
 /*grass position on desktop */
 
 @media screen and (min-width: 601px) {
-#A1 {
+.reveal {
+  height: 600px;
+}
+
+  #A1 {
   position: absolute;
   top: 0;
   left: 0;
@@ -1001,7 +1039,7 @@ img.transparent {
 }
 
 .pokedex-img {
-  min-width: 200px;
+  min-width: 100%;
 }
 
 .circle {

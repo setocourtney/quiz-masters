@@ -114,9 +114,14 @@ $(document).ready(function() {
       $(".grasspic").toggleClass("transparent");
       pokeNum = Math.floor(Math.random() * 151 + 1);
       $(".test").replaceWith(`<div class="test">
+<<<<<<< HEAD
         <div>
+=======
+      <div>
+>>>>>>> data
         <br><br>
         A wild a Pokemon appeared!
+        <br><br>
     </div>
     `);
       $(".modal-footer")
