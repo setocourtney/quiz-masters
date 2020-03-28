@@ -25,7 +25,7 @@
                 <div class="cell">
                     <div class="card pokedex-card">
                         <div class="card-section">
-                            <img class="pokedex-img" src="https://github.com/setocourtney/quiz-masters/blob/front-end/images/{{this.dataValues.name}}.png?raw=true">
+                            <img id="{{this.dataValues.id}}" class="pokedex-img" src="">
                         </div>
                         <div class="card-section">
                             <h3>{{this.dataValues.name}}</h4>
@@ -35,6 +35,11 @@
                         </div>
                     </div>
                 </div>
+            <script> 
+                    let pokeName = "{{this.dataValues.name}}";
+                    pokeName = pokeName.toLowerCase()
+                    $('#{{this.dataValues.id}}').attr('src',"/assets/images/{{this.dataValues.name}}.png?raw=true")
+            </script>
 
             {{/each}}
 
