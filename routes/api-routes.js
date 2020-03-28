@@ -1,6 +1,6 @@
 const db = require("../models");
 //ensures a clean version of Op is required 
-const Op = require("sequelize").Op;
+const Op = require("Sequelize").Op;
 
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
