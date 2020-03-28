@@ -38,8 +38,6 @@ form.login {
   padding: 10px 10px 0 10px;
 }
 
-
-
 h1, h2, h3, h4 {
   padding: 10px 0 0 0;
   font-family: 'Press Start 2P';
@@ -79,16 +77,6 @@ div.relative {
   top: 0;
   left: 0;
 }
-
-/* .battle {
-  display: none;
-  text-align: center;
-  width: 500px;
-  border: 1px solid black;
-  margin: 0 auto;
-  padding: 15px;
-} 
-*/
 
 .photo {
   position: relative;
@@ -137,15 +125,6 @@ img.transparent {
   background-color: aquamarine;
 }
 
-/* @media print, screen and (max-width: 40em) {
-  #myModal{
-    height: 800px;
-    width: 600px;
-    top: 50% !important;
-    transform: translateY(-50%);
-  }
-} */
-
 @media screen and (max-width: 600px) {
   div.relative {
     position: relative;
@@ -153,6 +132,10 @@ img.transparent {
     width: 360px;
     margin: 0 auto;
     top: 20px;
+  }
+
+  .reveal {
+    font-size: .6em;
   }
 
   .plains {
