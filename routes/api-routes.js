@@ -1,27 +1,24 @@
 const db = require("../models");
-//ensures a clean version of Op is required 
+//ensures a clean version of Op is required
 const Op = require("sequelize").Op;
 
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
-
-    // ----  POKEQUIZ ROUTES----
-  
+  // ----  POKEQUIZ ROUTES----
   app.get("/api/pokemon_data/:id", function(req, res) {
     db.Pokemon.findOne({
       where: {
         pokeId: req.params.id
       }
-    }).then((pokemon) => {
+    }).then(pokemon => {
       res.json(pokemon);
     });
   });
 
-  app.get('/play', isAuthenticated, function(req, res) {
-    db.Pokemon.findAll().then((pokemon) => {
-      console.log(pokemon.length);
-      res.render('index', { pokemon: pokemon });
+  app.get("/play", isAuthenticated, function(req, res) {
+    db.Pokemon.findAll().then(pokemon => {
+      res.render("index", { pokemon: pokemon });
     });
   });
 
@@ -30,55 +27,53 @@ module.exports = function(app) {
       pokeId: req.body.pokeId,
       isCaptured: req.body.isCaptured,
       userId: req.body.userId
-    }).then((dbPokedex) => {
+    }).then(dbPokedex => {
       res.json(dbPokedex);
     });
   });
 
   app.get("/pokedex/:userId", isAuthenticated, function(req, res) {
-    console.log(req.params.userId);
     //grab user's caught pokemon id values
     db.Pokedex.findAll({
       attributes: ["pokeId"],
       where: {
         userId: req.params.userId
       }
-    }).then((results) => {
+    }).then(results => {
       // get list of pokeIds from Pokedex object
-      const pokeIdArray = results.map((pokemon) => { return {pokeId: pokemon.pokeId}} );
+      const pokeIdArray = results.map(pokemon => {
+        return { pokeId: pokemon.pokeId };
+      });
       // grabs pokemon stats from pokemon database from user's caught pokemon json
       db.Pokemon.findAll({
         where: {
           [Op.or]: pokeIdArray
         }
-      }).then((pokemon) => {
-
+      }).then(pokemon => {
         res.render("pokedex", { pokemon: pokemon });
       });
     });
   });
 
-
-  app.get("/api/questions/:type_id", function(req, res) {
+  app.get("/api/questions/:typeId", function(req, res) {
     db.Questions.findAll({
       where: {
-        type_id: req.params.type_id
+        typeId: req.params.typeId
       }
-    }).then((dbQuestions) => {
+    }).then(dbQuestions => {
       res.json(dbQuestions);
     });
   });
 
   app.get("/api/questions/", function(req, res) {
-    db.Questions.findAll({}).then((dbQuestions) => {
+    db.Questions.findAll({}).then(dbQuestions => {
       res.json(dbQuestions);
     });
   });
 
   app.get("/api/pokemon_data", function(req, res) {
-    db.Pokemon.findAll().then((pokemon) => {
+    db.Pokemon.findAll().then(pokemon => {
       res.json(pokemon);
     });
   });
-
 };

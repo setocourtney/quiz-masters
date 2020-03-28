@@ -10,11 +10,11 @@ var parser = csv.parse({
 
 var transform = csv.transform(function(row) {
     var resultObj = {
-        "daily_double": row['daily_double'],
+        "dailyDouble": row['daily_double'],
         "category": row['category'],
         "question": row['question'],
         "answer": row['answer'],
-        "type_id": row['type_id']
+        "typeId": row['type_id']
     }
     db.Questions.create(resultObj)
         .then(function() {
