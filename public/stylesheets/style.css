@@ -135,11 +135,6 @@ img.transparent {
   }
 
   .reveal {
-<<<<<<< HEAD
-    font-size: .6em;
-  }
-
-=======
     overflow-y: auto;
     height: 500px;
     font-size: .6em;
@@ -171,7 +166,6 @@ img.transparent {
   
   }
 
->>>>>>> data
   .plains {
     background-image: url("/assets/sprites/Pixel_art_grass_image.png?raw=true");
     background-size: 360px 360px;
