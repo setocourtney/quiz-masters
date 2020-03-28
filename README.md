@@ -6,9 +6,9 @@ Heroku Deployment: https://radiant-inlet-24995.herokuapp.com/
 
 ## Game Play
 
-
-## Code Style
-
+* wander the grass for a chance to encounter a wild pokemon
+* answer trivia questions based on the pokemon type for a chance to capture the wild pokemon
+* an incorrect answer will cause the pokemon to flee
 
 ## Technologies
 
