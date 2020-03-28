@@ -1,5 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
-    var Pokedex = sequelize.define("Pokedex", {
+  const Pokedex = sequelize.define(
+    "Pokedex",
+    {
       pokeId: {
         type: DataTypes.INTEGER,
         allowNull: false
@@ -12,9 +14,10 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.INTEGER,
         allowNull: false
       }
-    }, {
-        freezeTableName: true
-    });
-      
-    return Pokedex;
+    },
+    {
+      freezeTableName: true
+    }
+  );
+  return Pokedex;
 };

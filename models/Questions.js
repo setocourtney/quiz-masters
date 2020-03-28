@@ -1,12 +1,14 @@
 module.exports = function(sequelize, DataTypes) {
-    var Questions = sequelize.define("Questions", {
+  const Questions = sequelize.define(
+    "Questions",
+    {
       dailyDouble: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
       },
       category: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       question: {
         type: DataTypes.STRING,
@@ -21,9 +23,10 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.INTEGER,
         allowNull: false
       }
-    }, {
-        freezeTableName: true
-    });
-      
-    return Questions;
+    },
+    {
+      freezeTableName: true
+    }
+  );
+  return Questions;
 };
