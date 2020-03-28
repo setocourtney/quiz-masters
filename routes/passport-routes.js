@@ -2,7 +2,6 @@ var db = require("../models");
 var passport = require("../config/passport");
 
 module.exports = function(app) {
-
   // ----  PASSPORT ROUTES----
 
   // Using the passport.authenticate middleware with our local strategy.
@@ -52,6 +51,4 @@ module.exports = function(app) {
       });
     }
   });
-
-
 };
