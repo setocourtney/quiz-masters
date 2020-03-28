@@ -35,15 +35,12 @@ $(document).ready(function() {
     }
 
     choosePokeSpots();
-
     $('.grass').on('click', function() {
-    console.log($(this).attr("id"))
     let pokeNum = "";
     if (pokeSpots.includes($(this).attr("id")) === true) {
     console.log('You found a Pokemon!')
     $('.grasspic').toggleClass('transparent')
     pokeNum = Math.floor(Math.random() * 151 + 1);
-    console.log(pokeNum);
     $('.test').replaceWith(`<div class="test">
 
                                     <div class="question">
@@ -101,7 +98,6 @@ $(document).ready(function() {
 
             let firstAnswer = questions[chosenQuestion].answer
 
-            console.log(firstAnswer)
             answers.push(firstAnswer)
 
             // choosing answers
@@ -113,7 +109,6 @@ $(document).ready(function() {
                 //making sure there aren't duplicate answers
                 let noDupeAnswers = function() {
                 if (answers.includes(fakeAnswerData) === true) {
-                    console.log('dupe')
                     fakeAnswerData = questions[Math.floor(Math.random() * questions.length)].answer;
                     noDupeAnswers();
                 }
@@ -162,7 +157,6 @@ $(document).ready(function() {
 
             $('#run').on('click', function() {
                 $('.pokepic').attr('src',"/assets/sprites/quick_grass.png?raw=true")
-                $('.grasspic').toggleClass('transparent')
 
             })
 
@@ -189,7 +183,6 @@ $(document).ready(function() {
 
                         $('#reset').on('click', function() {
                             $('.pokepic').attr('src',"/assets/sprites/quick_grass.png?raw=true")
-                            $('.grasspic').toggleClass('transparent')
                         })
                         
                         $('#capture').on('click', function() {
@@ -202,7 +195,6 @@ $(document).ready(function() {
                                     isCaptured: true,
                                     userId: user.id
                                 }
-                                console.log(addPokemon);
                                 $.ajax("api/pokedex", {
                                     type: "POST",
                                     data: addPokemon
@@ -217,7 +209,6 @@ $(document).ready(function() {
                                         `)
                                     $('#reset').on('click', function() {
                                         $('.pokepic').attr('src',"/assets/sprites/quick_grass.png?raw=true")
-                                        $('.grasspic').toggleClass('transparent')
 
                                     })
                                 })
@@ -231,7 +222,6 @@ $(document).ready(function() {
                     $('#run').replaceWith(`<button type="button" class="button alert" id="next" data-close > ${json.name} ran away! </button>`)
                     $('#next').on('click', function() {
                         $('.pokepic').attr('src',"/assets/sprites/quick_grass.png?raw=true")
-                        $('.grasspic').toggleClass('transparent')
 
 
                     })

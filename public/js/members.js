@@ -18,4 +18,5 @@ $(document).ready(function() {
       window.location.replace(`/pokedex/${user.id}`);
   })
   });
+
 });
