@@ -1052,7 +1052,7 @@ img.transparent {
 }
 
 .pokedex-img {
-  min-width: 200px;
+  min-width: 100%;
 }
 
 .circle {
