@@ -164,7 +164,7 @@ $(document).ready(function() {
                 </div>`
           )
           .foundation();
-        fetch(`/api/pokemon_data/${pokeNum}`)
+        fetch(`/api/pokemon/${pokeNum}`)
           .then(function(response) {
             return response.json();
           })

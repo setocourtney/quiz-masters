@@ -16,7 +16,7 @@ $(document).ready(function() {
         return results.json();
       })
       .then(function(user) {
-        window.location.replace(`/pokedex/${user.id}`);
+        window.location.replace(`pokedex/${user.id}`);
       });
   });
 });
